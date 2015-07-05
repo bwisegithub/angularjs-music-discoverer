@@ -1,5 +1,14 @@
 var app = angular.module('MusicDiscovererApp', ['ngRoute']);
 
+app.config(function ($sceDelegateProvider) {
+
+	$sceDelegateProvider.resourceUrlWhitelist([
+    // Allow same origin resource loads.
+    'self',
+
+  ]); 
+});
+
 app.config(function ($routeProvider) { 
  	$routeProvider 
 		.when('/', { 
