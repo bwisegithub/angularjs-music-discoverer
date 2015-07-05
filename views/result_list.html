@@ -1,0 +1,9 @@
+<ng-include src="'../includes/new_search.html'"></ng-include>
+<h1>{{ controllerData.headerKey }}</h1>
+<div ng-repeat="musician in musicians">
+	<a href="#/musician/{{ musician.id }}">
+		<span>{{ musician.id }}</span>
+		<span>{{ musician.resource }}</span>
+		<span>{{ musician.label }}</span>
+	</a>
+</div>

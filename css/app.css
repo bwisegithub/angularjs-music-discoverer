@@ -1,5 +1,14 @@
 .button {
-  -webkit-box-sizing: initial;
-     -moz-box-sizing: initial;
-          box-sizing: initial;
+	-webkit-box-sizing: initial;
+	-moz-box-sizing: initial;
+	box-sizing: initial;
 }
+
+#view-on-github {
+  margin-right: 14px;
+}
+
+#download-tar-gz {
+  margin-right: 0;
+}
+
