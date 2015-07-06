@@ -1,23 +1,21 @@
-app.controller('ResultListController', ['$scope', 'musicians', function($scope, musicians) {
+app.controller('ResultListController', ['$scope', 'sparqlQueries', 'dbpResults', function($scope, sparqlQueries, dbpResults) {
 	$scope.controllerData = { headerKey: 'Search Result List' };
-	/*$scope.musicians = [
-		{
-			id: 43007,
-			resource: 'http://dbpedia.org/resource/Blur_(band)',
-			label: 'Blur (band)'
-		},
-		{
-			id: 80103,
-			resource: 'http://dbpedia.org/resource/Coldplay',
-			label: 'Coldplay'
-		},
-		{
-			id: 247253,
-			resource: 'http://dbpedia.org/resource/Anthrax_(UK_band)',
-			label: 'Anthrax (UK band)'
+
+	// Get the approrpriate sparql query string
+	// then execute it on dbpedia.
+	sparqlQueries.getAll().success(function(data) {
+		var sparqlQuery = 'QUERY NOT FOUND';
+
+		for (var i = 0; i< data.sparqlQueries.length; i++) {
+			if (data.sparqlQueries[i].name === "keywordSearchQuery") {
+				var sparqlQuery = data.sparqlQueries[i].query.join(' ');
+			}
 		}
-	];*/
-	musicians.success(function(data) {
-		$scope.musicians = data;
-	});  
+
+		dbpResults.getDbpediaResults(sparqlQuery).success(function(data) {
+			$scope.dbpResults = data.results.bindings;
+		}); 		
+
+	}); 
+
 }]);

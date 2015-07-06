@@ -1,24 +1,25 @@
-app.factory('musicians', ['$http', function($http) {
+app.factory('dbpResults', ['$http', function($http) {
 
-	var url = "http://dbpedia.org/sparql/";
-	var query = [
- 		"select distinct ?Concept where {[] a ?Concept} ",
- 		"LIMIT 100"
-	].join(" ");
+	return {
+		getDbpediaResults: function(sparqlQuery) { 
 
-	var queryUrl = url+"?query="+ encodeURIComponent(query) +"&format=json";
-	//queryUrl = 'https://s3.amazonaws.com/codecademy-content/courses/ltp4/emails-api/emails.json';
-	window.alert(queryUrl);
+			var url = 'http://dbpedia.org/sparql/';
+			var query_prefix = '?default-graph-uri=http%3A%2F%2Fdbpedia.org';
+			query = '&query=' + encodeURIComponent(sparqlQuery);
+			var query_suffix = '&format=application%2Fsparql-results%2Bjson&timeout=30000&debug=on';
+			var queryUrl = url + query_prefix + query + query_suffix;
 
-	return $http.get(queryUrl)
-		.success(function(data) {
-			//window.alert(data);
-		  return data;
-		})
-		.error(function(err) {
-			window.alert(err);
-		  return err;
-		});
+			return $http.jsonp(queryUrl + '&callback=JSON_CALLBACK')
+				.success(function(data) {
+					return data;
+				})
+				.error(function(err) {
+					return err;
+				}); 
+		}
+	};
+
 }]);
+
 
 

@@ -1,11 +1,7 @@
 <ng-include src="'views/include_new_search.html'"></ng-include>
 <h1>{{ controllerData.headerKey }}</h1>
-<div ng-repeat="musician in musicians">
-	<a href="#/musician/{{ musician.id }}">
-		<span>{{ musician.id }}</span>
-		<span>{{ musician.resource }}</span>
-		<span>{{ musician.label }}</span>
-		{{ musician.from }}
-			{{ musician.results }}
+<div ng-repeat="result in dbpResults">
+	<a href="#/musician/{{ result.id.value }}">
+		<span>{{ result.label.value }}</span>
 	</a>
 </div>

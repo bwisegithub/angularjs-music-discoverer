@@ -1,0 +1,46 @@
+{"sparqlQueries":[
+	{"id"		:	"1", 
+	 "name"		:	"keywordSearchQuery",
+	 "query"	:	[
+					"SELECT  ",
+					"  ?id ",
+					"  ?resource  ",
+					"  STR(?label) AS ?label ",
+					"WHERE  ",
+					"{ ",
+					"  { ?resource a dbpedia-owl:MusicalArtist } ",
+					"      UNION ",
+					"  { ?resource a dbpedia-owl:Band } ",
+					"  ?resource dbpedia-owl:wikiPageID ?id . ",
+					"  ?resource rdfs:label ?label  ",
+					"  FILTER(!regex(?label, \"List of\", \"i\")) ",
+					"  FILTER EXISTS{ ?resource dbpedia-owl:genre ?ANY } ",
+					"  FILTER(langMatches(lang(?label),\"EN\")) ",
+					"  FILTER(bif:contains(?label,\"the_mighty\")) ",
+					"}  ",
+					"LIMIT 100"
+					]
+	},
+	{"id"		:	"2", 
+	 "name"		:	"musicianDetailsQuery",
+	 "query"	:	[
+					"SELECT  ",
+					"  (STR(?resource_label) AS ?resource_label)",
+					"  ?thumbnail",
+					"  (STR(?comment) AS ?comment) ",
+					"  ?genre_resource",
+					"  (STR(?genre_label) AS ?genre_label) ",
+					"{ ",
+					"  ?resource dbpedia-owl:wikiPageID --REPLACE_ID-- . ",
+					"  ?resource rdfs:label ?resource_label .",
+					"  ?resource rdfs:comment ?comment .",
+					"  ?resource dbpedia-owl:genre ?genre_resource .",
+					"  ?genre_resource rdfs:label ?genre_label .",
+					"  OPTIONAL{ ?resource dbpedia-owl:thumbnail ?thumbnail }",
+					"  FILTER(langMatches(lang(?resource_label),\"EN\"))",
+					"  FILTER(langMatches(lang(?comment),\"EN\"))",
+					"  FILTER(langMatches(lang(?genre_label),\"EN\"))",
+					"}"
+					]
+	}	
+]}
