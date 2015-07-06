@@ -1,6 +1,6 @@
-app.controller('ResultListController', ['$scope', function($scope) {
+app.controller('ResultListController', ['$scope', 'musicians', function($scope, musicians) {
 	$scope.controllerData = { headerKey: 'Search Result List' };
-	$scope.musicians = [
+	/*$scope.musicians = [
 		{
 			id: 43007,
 			resource: 'http://dbpedia.org/resource/Blur_(band)',
@@ -16,5 +16,8 @@ app.controller('ResultListController', ['$scope', function($scope) {
 			resource: 'http://dbpedia.org/resource/Anthrax_(UK_band)',
 			label: 'Anthrax (UK band)'
 		}
-	];
+	];*/
+	musicians.success(function(data) {
+		$scope.musicians = data;
+	});  
 }]);
