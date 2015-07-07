@@ -4,6 +4,10 @@
 	<span>{{ dbpResults[0].resource_label.value }}</span>
 	<span>{{ dbpResults[0].thumbnail.value }}</span>
 	<span>{{ dbpResults[0].comment.value }}</span>
-	<span>{{ dbpResults[0].genre_resource.value }}</span>
-	<span>{{ dbpResults[0].genre_label.value }}</span>
+</div>
+<div ng-repeat="result in dbpResults">
+	<a ng-controller="SearchController" ng-click="random('genre', result.genre_resource.value)">
+		<span>{{ result.genre_resource.value }}</span>
+		<span>{{ result.genre_label.value }}</span>
+	</a>
 </div>

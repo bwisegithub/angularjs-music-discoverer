@@ -1,6 +1,14 @@
 app.factory('dbpResults', ['$http', function($http) {
 
+	var searchKeywords = '';
+
 	return {
+		getSearchKeywords: function() {
+			return searchKeywords;
+		},
+		setSearchKeywords: function(paramSearchKeywords) {
+			searchKeywords = paramSearchKeywords;
+		},
 		getDbpediaResults: function(sparqlQuery) { 
 
 			var url = 'http://dbpedia.org/sparql/';
