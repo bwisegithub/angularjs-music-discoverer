@@ -1,13 +1,21 @@
 <ng-include src="'views/include_new_search.html'"></ng-include>
 <h1>{{ controllerData.headerKey }}</h1>
 <div>
-	<img ng-src="{{ dbpResults[0].thumbnail.value }}" >
-	<span>{{ dbpResults[0].resource_label.value }}</span>
-	<span>{{ dbpResults[0].comment.value }}</span>
+	<img ng-src="{{ dbpResultsMusician[0].thumbnail.value }}" >
+	<span>{{ dbpResultsMusician[0].resource.value }}</span>
+	<span>{{ dbpResultsMusician[0].resource_label.value }}</span>
+	<span>{{ dbpResultsMusician[0].comment.value }}</span>
 </div>
-<div ng-repeat="result in dbpResults">
-	<a ng-controller="SearchController" ng-click="random('genre', result.genre_resource.value)">
-		<span>{{ result.genre_resource.value }}</span>
-		<span>{{ result.genre_label.value }}</span>
+<div ng-repeat="musician in dbpResultsMusician">
+	<a ng-controller="SearchController" ng-click="random('genre', musician.genre_resource.value)">
+		<span>{{ musician.genre_resource.value }}</span>
+		<span>{{ musician.genre_label.value }}</span>
 	</a>
 </div>
+<div ng-repeat="associate in dbpResultsAssociates | filter:isNotFeaturedMusician">
+	<a href="#/musician/{{ associate.id.value }}">
+		<img ng-src="{{ associate.thumbnail.value }}" >
+		<span>{{ associate.id.value}}</span>
+		<span>{{ associate.label.value}}</span>
+	</a>
+<div>
