@@ -10,10 +10,10 @@ app.factory('sparqlQueries', ['$http', function($http) {
 				  	return err;
 				}); 
 		},
-		getQueryStr: function(data, queryName) {
+		getQueryStr: function(data, paramQueryName) {
 			var sparqlQuery = 'QUERY NOT FOUND';
 			for (var i = 0; i< data.sparqlQueries.length; i++) {
-				if (data.sparqlQueries[i].name === queryName) {
+				if (data.sparqlQueries[i].name === paramQueryName) {
 					var sparqlQuery = data.sparqlQueries[i].query.join(' ');
 				}
 			}

@@ -5,7 +5,7 @@ app.controller('ResultListController', ['$scope', 'sparqlQueries', 'dbpResults',
 	// Get the appropriate sparql query string
 	// then execute it on dbpedia
 	sparqlQueries.getData().success(function(data) {
-		var sparqlQuery = sparqlQueries.getQueryStr(data, "keywordSearchQuery");
+		var sparqlQuery = sparqlQueries.getQueryStr(data, 'keywordSearchQuery');
 
 		// get the keywords entered by user
 		var searchKeywords = dbpResults.getSearchKeywords();
