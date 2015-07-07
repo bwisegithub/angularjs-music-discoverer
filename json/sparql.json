@@ -22,22 +22,6 @@
 					]
 	},
 	{"id"		:	"2", 
-	 "name"		:	"countForAllQuery",
-	 "query"	:	[
-					"SELECT",
-					"  count(?resource) AS ?resourceCnt",
-					"WHERE",
-					"{",
-					"  { ?resource a dbpedia-owl:MusicalArtist }",
-					"      UNION",
-					"  { ?resource a dbpedia-owl:Band }",
-					"  ?resource rdfs:label ?label",
-					"  FILTER(!regex(?label, \"List of\", \"i\"))",
-					"  FILTER(langMatches(lang(?label),\"EN\"))",
-					"} "
-					]
-	},
-	{"id"		:	"3", 
 	 "name"		:	"randomIdQuery",
 	 "query"	:	[
 					"SELECT",
@@ -57,7 +41,7 @@
 					"LIMIT 1"
 					]
 	},
-	{"id"		:	"4", 
+	{"id"		:	"3", 
 	 "name"		:	"countForGenreQuery",
 	 "query"	:	[
 					"SELECT",
@@ -74,7 +58,7 @@
 					"} "
 					]
 	},
-	{"id"		:	"5", 
+	{"id"		:	"4", 
 	 "name"		:	"randomIdForGenreQuery",
 	 "query"	:	[
 					"SELECT",
@@ -95,7 +79,7 @@
 					"LIMIT 1"
 					]
 	},
-	{"id"		:	"6", 
+	{"id"		:	"5", 
 	 "name"		:	"musicianDetailsQuery",
 	 "query"	:	[
 					"SELECT",

@@ -17,49 +17,67 @@ app.controller('SearchController', ['$scope', '$location', 'sparqlQueries', 'dbp
 
 			var getCountSparqlQuery = '';
 			var getIdSparqlQuery = '';
+			var randInt = 0;
 
-			switch(randomnessType) {
-				case 'id':
-					getCountSparqlQuery = sparqlQueries.getQueryStr(data, 'countForAllQuery');
-					getIdSparqlQuery = sparqlQueries.getQueryStr(data, 'randomIdQuery');
-					break;
-				case 'genre':
-					getCountSparqlQuery = sparqlQueries.getQueryStr(data, 'countForGenreQuery');
-					getCountSparqlQuery = getCountSparqlQuery.replace('--REPLACE_GENRE_RESOURCE--', dbpResource);
-					getIdSparqlQuery = sparqlQueries.getQueryStr(data, 'randomIdForGenreQuery');
-					getIdSparqlQuery = getIdSparqlQuery.replace('--REPLACE_GENRE_RESOURCE--', dbpResource);
-					break;
-			}
+			if (randomnessType === 'id') {
+				getCountSparqlQuery = sparqlQueries.getQueryStr(data, 'countForAllQuery');
+				getIdSparqlQuery = sparqlQueries.getQueryStr(data, 'randomIdQuery');
+				// Using 40000 as upper for randomnesss because in July 2015 have observed
+				// total possible musicians vary from 63-78K fluctuating wildly from 
+				// day to day so keeping value what is hopefully well below lowest max.
+				// Tried querying for total count to use as upper max of offset, but
+				// significant lag involved with doing that; not worth querying server
+				// just for this feature. 40K possibilites is plenty for our random 
+				// sampling purposes.
+				randInt = Math.floor(Math.random() * 40000) + 1;
 
-			dbpResults.getDbpediaResults(getCountSparqlQuery).success(function(data) {
-				var dbpResultsGetCnt = data.results.bindings;
-				var cnt = 0;
-				var randInt = 0;
-				if (dbpResultsGetCnt.length === 1) {
-					cnt = dbpResultsGetCnt[0].resourceCnt.value;
-					randInt = Math.floor(Math.random() * cnt) + 1;
+				if (randInt > 0) {
+					// Substitute in the random offset which will result in a random record from
+					// all the possible musicians.
+					getIdSparqlQuery = getIdSparqlQuery.replace('--REPLACE_OFFSET--', randInt);
 
-					if (randInt > 0) {
-						// Substitute in the random offset which will result in a random record from
-						// all the possible musicians.
-						window.alert('using offset' + randInt);
-						getIdSparqlQuery = getIdSparqlQuery.replace('--REPLACE_OFFSET--', randInt);
-
-						dbpResults.getDbpediaResults(getIdSparqlQuery).success(function(data) {
-							var dbpResultsGetId = data.results.bindings;
-							var id = '';
-							if (dbpResultsGetId.length === 1) {
-								id = dbpResultsGetId[0].id.value;
-							}
-							// route to the musician with the wikiPageId chosen by dbpedia
-							$location.path('/musician/' + id);
-						}); 
-					}
+					dbpResults.getDbpediaResults(getIdSparqlQuery).success(function(data) {
+						var dbpResultsGetId = data.results.bindings;
+						var id = '';
+						if (dbpResultsGetId.length === 1) {
+							id = dbpResultsGetId[0].id.value;
+						}
+						// route to the musician with the wikiPageId chosen by dbpedia
+						$location.path('/musician/' + id);
+					}); 
 				}
-			}); 	
+			} else if (randomnessType === 'genre') {
+				getCountSparqlQuery = sparqlQueries.getQueryStr(data, 'countForGenreQuery');
+				getCountSparqlQuery = getCountSparqlQuery.replace('--REPLACE_GENRE_RESOURCE--', dbpResource);
+				getIdSparqlQuery = sparqlQueries.getQueryStr(data, 'randomIdForGenreQuery');
+				getIdSparqlQuery = getIdSparqlQuery.replace('--REPLACE_GENRE_RESOURCE--', dbpResource);
 
+				dbpResults.getDbpediaResults(getCountSparqlQuery).success(function(data) {
+					var dbpResultsGetCnt = data.results.bindings;
+					var cnt = 0;
+					var randInt = 0;
+					if (dbpResultsGetCnt.length === 1) {
+						cnt = dbpResultsGetCnt[0].resourceCnt.value;
+
+						if (randInt > 0) {
+							// Substitute in the random offset which will result in a random record from
+							// all the possible musicians.
+							window.alert('using offset' + randInt);
+							getIdSparqlQuery = getIdSparqlQuery.replace('--REPLACE_OFFSET--', randInt);
+
+							dbpResults.getDbpediaResults(getIdSparqlQuery).success(function(data) {
+								var dbpResultsGetId = data.results.bindings;
+								var id = '';
+								if (dbpResultsGetId.length === 1) {
+									id = dbpResultsGetId[0].id.value;
+								}
+								// route to the musician with the wikiPageId chosen by dbpedia
+								$location.path('/musician/' + id);
+							}); 
+						}
+					}
+				}); 
+			}
 		}); 
-
 	};
-
 }]);
