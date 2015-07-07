@@ -56,13 +56,14 @@ app.controller('SearchController', ['$scope', '$location', 'sparqlQueries', 'dbp
 					var dbpResultsGetCnt = data.results.bindings;
 					var cnt = 0;
 					var randInt = 0;
+					
 					if (dbpResultsGetCnt.length === 1) {
 						cnt = dbpResultsGetCnt[0].resourceCnt.value;
+						randInt = Math.floor(Math.random() * cnt) + 1;
 
 						if (randInt > 0) {
 							// Substitute in the random offset which will result in a random record from
 							// all the possible musicians.
-							window.alert('using offset' + randInt);
 							getIdSparqlQuery = getIdSparqlQuery.replace('--REPLACE_OFFSET--', randInt);
 
 							dbpResults.getDbpediaResults(getIdSparqlQuery).success(function(data) {
