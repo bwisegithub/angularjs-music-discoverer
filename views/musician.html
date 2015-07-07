@@ -1,8 +1,8 @@
 <ng-include src="'views/include_new_search.html'"></ng-include>
 <h1>{{ controllerData.headerKey }}</h1>
 <div>
+	<img ng-src="{{ dbpResults[0].thumbnail.value }}" >
 	<span>{{ dbpResults[0].resource_label.value }}</span>
-	<span>{{ dbpResults[0].thumbnail.value }}</span>
 	<span>{{ dbpResults[0].comment.value }}</span>
 </div>
 <div ng-repeat="result in dbpResults">
