@@ -1,7 +1,6 @@
 <ng-include src="'views/include_new_search.html'"></ng-include>
 <h1>{{ controllerData.headerKey }}</h1>
-<div ng-show="!dbpResultsMusician.length && dbpResultsMusician.length != 0">Waiting for results...</div>
-<div ng-show="dbpResultsMusician.length === 0">No results found</div>
+<md-results-placeholder mdresplaceholder="dbpResultsMusician"></md-results-placeholder>
 <div>
 	<md-img mdimgval="dbpResultsMusician[0].thumbnail.value"></md-img>
 	<span>{{ dbpResultsMusician[0].resource.value }}</span>
