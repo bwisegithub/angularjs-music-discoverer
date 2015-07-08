@@ -1,8 +1,9 @@
 <ng-include src="'views/include_new_search.html'"></ng-include>
 <h1>{{ controllerData.headerKey }}</h1>
+<div ng-show="!dbpResults.length && dbpResults.length != 0">Waiting for results...</div>
+<div ng-show="dbpResults.length === 0">No results found</div>
 <div ng-repeat="result in dbpResults">
 	<a href="#/musician/{{ result.id.value }}">
 		<span>{{ result.label.value }}</span>
 	</a>
 </div>
-<div ng-hide="dbpResults.length">No results found.</div>
