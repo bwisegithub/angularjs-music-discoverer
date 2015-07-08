@@ -1,7 +1,7 @@
 <ng-include src="'views/include_new_search.html'"></ng-include>
 <h1>{{ controllerData.headerKey }}</h1>
 <div>
-	<img ng-src="{{ dbpResultsMusician[0].thumbnail.value }}" >
+	<img ng-src="{{ dbpResultsMusician[0].thumbnail.value }}" fallback-src="img/octocat-icon.png">
 	<span>{{ dbpResultsMusician[0].resource.value }}</span>
 	<span>{{ dbpResultsMusician[0].resource_label.value }}</span>
 	<span>{{ dbpResultsMusician[0].comment.value }}</span>
@@ -14,7 +14,7 @@
 </div>
 <div ng-repeat="associate in dbpResultsAssociates | filter:isNotFeaturedMusician">
 	<a href="#/musician/{{ associate.id.value }}">
-		<img ng-src="{{ associate.thumbnail.value }}" >
+		<img ng-src="{{ associate.thumbnail.value }}" fallback-src="img/octocat-icon.png">
 		<span>{{ associate.id.value}}</span>
 		<span>{{ associate.label.value}}</span>
 	</a>

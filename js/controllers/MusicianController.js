@@ -41,4 +41,10 @@ app.controller('MusicianController', ['$scope', '$routeParams', 'sparqlQueries',
 		return !(associate.id.value === $routeParams.id);
 	};
 	
+	$scope.imgNotFound = function(image) {
+	    image.onerror = '';
+	    image.src = '/images/imageNotFound.gif';
+	    return true;
+	}
+
 }]);
