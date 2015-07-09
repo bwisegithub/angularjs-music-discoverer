@@ -4,8 +4,8 @@
 	 "query"	:	[
 					"SELECT",
 					"  ?id",
-					"  ?resource",
 					"  STR(?label) AS ?label",
+					"  ?thumbnail",
 					"WHERE",
 					"{",
 					"  { ?resource a dbpedia-owl:MusicalArtist }",
@@ -13,12 +13,14 @@
 					"  { ?resource a dbpedia-owl:Band }",
 					"  ?resource dbpedia-owl:wikiPageID ?id .",
 					"  ?resource rdfs:label ?label .",
-					"  ?resource rdfs:comment ?comment",
+					"  ?resource rdfs:comment ?comment .",
+					"  OPTIONAL{ ?resource dbpedia-owl:thumbnail ?thumbnail }",
 					"  FILTER(langMatches(lang(?label),\"EN\"))",
 					"  FILTER(langMatches(lang(?comment),\"EN\"))",
 					"  FILTER(!regex(?label, \"List of\", \"i\"))",
 					"  FILTER(bif:contains(?label,\"--REPLACE_KEYWORDS--\"))",
 					"}  ",
+					"ORDER BY ?label",
 					"LIMIT 100"
 					]
 	},
@@ -67,7 +69,6 @@
 	 "query"	:	[
 					"SELECT",
 					"  ?id",
-					"  ?resource",
 					"WHERE",
 					"{",
 					"  { ?resource a dbpedia-owl:MusicalArtist }",
@@ -114,7 +115,6 @@
 	 "query"	:	[
 					"SELECT",
 					"  ?id",
-					"  ?resource",
 					"  (STR(?label) AS ?label)",
 					"  ?thumbnail",
 					"  IF(CONTAINS(STR(?active_start_yr),\"+\"), STR(YEAR(?active_start_yr)), \"\") AS ?active_start_yr",
