@@ -3,6 +3,7 @@
 <md-results-placeholder mdresplaceholder="dbpResults"></md-results-placeholder>
 <div ng-repeat="result in dbpResults">
 	<a href="#/musician/{{ result.id.value }}">
+		<md-img mdimgval="result.thumbnail.value"></md-img>
 		<span>{{ result.label.value }}</span>
 	</a>
 </div>
