@@ -16,7 +16,8 @@ form {
 }
 
 input:focus {
-    outline: 1px solid #e7e7e7;
+	outline: none;
+    border: 1px inset #52F6FF;
 }
 
 .button {
