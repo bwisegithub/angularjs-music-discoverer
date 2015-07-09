@@ -29,7 +29,7 @@
 					"  ?id",
 					"WHERE ",
 					"{",
-					"  { ?resurce a dbpedia-owl:MusicalArtist }",
+					"  { ?resource a dbpedia-owl:MusicalArtist }",
 					"      UNION",
 					"  { ?resource a dbpedia-owl:Band }",
 					"  ?resource dbpedia-owl:wikiPageID ?id .",

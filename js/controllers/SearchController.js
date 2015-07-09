@@ -1,5 +1,5 @@
-app.controller('SearchController', ['$rootScope', '$scope', '$location', 'sparqlQueries', 'dbpResults', 
-	function($rootScope, $scope, $location, sparqlQueries, dbpResults) {
+app.controller('SearchController', ['$scope', '$location', 'sparqlQueries', 'dbpResults', 
+	function($scope, $location, sparqlQueries, dbpResults) {
 
 	$scope.controllerData = { headerKey: 'Musician Search' };
 
