@@ -3,16 +3,15 @@
 <md-results-placeholder mdresplaceholder="dbpResultsMusician"></md-results-placeholder>
 <div>
 	<md-img mdimgval="dbpResultsMusician[0].thumbnail.value"></md-img>
-	<span>{{ dbpResultsMusician[0].resource.value }}</span>
 	<span>{{ dbpResultsMusician[0].resource_label.value }}</span>
 	<span>{{ dbpResultsMusician[0].comment.value }}</span>
 </div>
 <div ng-repeat="musician in dbpResultsMusician">
 	<a ng-controller="SearchController" ng-click="random('genre', musician.genre_resource.value)">
-		<span>{{ musician.genre_resource.value }}</span>
 		<span>{{ musician.genre_label.value }}</span>
 	</a>
 </div>
+<h2>Associated Musicians</h2>
 <div ng-repeat="associate in dbpResultsAssociates | filter:isNotFeaturedMusician">
 	<a href="#/musician/{{ associate.id.value }}">
 		<md-img mdimgval="associate.thumbnail.value"></md-img>
