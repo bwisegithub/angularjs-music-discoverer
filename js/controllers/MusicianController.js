@@ -1,4 +1,5 @@
-app.controller('MusicianController', ['$scope', '$routeParams', 'sparqlQueries', 'dbpResults', function($scope, $routeParams, sparqlQueries, dbpResults) {
+app.controller('MusicianController', ['$scope', '$routeParams', 'sparqlQueries', 'dbpResults', 
+	function($scope, $routeParams, sparqlQueries, dbpResults) {
 
 	$scope.controllerData = { headerKey: 'Musician Details' };
 
@@ -25,12 +26,10 @@ app.controller('MusicianController', ['$scope', '$routeParams', 'sparqlQueries',
 							// Substitute in the routeParams id (which is the dbpedia-owl:wikiPageID)
 							sparqlQuery = sparqlQuery.replace('--REPLACE_ID--', $routeParams.id);
 							sparqlQuery = sparqlQuery.replace(/--REPLACE_RESOURCE--/g, musicianResource);
-
 							dbpResults.getDbpediaResults(sparqlQuery).success(function(data) {
 								$scope.dbpResultsAssociates = data.results.bindings;
 							}); 
 						}
-
 					}); 
 				}
 			}); 

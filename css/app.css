@@ -1,3 +1,6 @@
+/**
+ * music-discoverer specific styles
+ */
 .button {
 	-webkit-box-sizing: initial;
 	-moz-box-sizing: initial;
@@ -12,3 +15,6 @@
   margin-right: 0;
 }
 
+.waiting {
+  cursor: wait;
+}

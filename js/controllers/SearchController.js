@@ -1,4 +1,5 @@
-app.controller('SearchController', ['$scope', '$location', 'sparqlQueries', 'dbpResults', function($scope, $location, sparqlQueries, dbpResults) {
+app.controller('SearchController', ['$rootScope', '$scope', '$location', 'sparqlQueries', 'dbpResults', 
+	function($rootScope, $scope, $location, sparqlQueries, dbpResults) {
 
 	$scope.controllerData = { headerKey: 'Musician Search' };
 
@@ -35,9 +36,12 @@ app.controller('SearchController', ['$scope', '$location', 'sparqlQueries', 'dbp
 					// Substitute in the random offset which will result in a random record from
 					// all the possible musicians.
 					getIdSparqlQuery = getIdSparqlQuery.replace('--REPLACE_OFFSET--', randInt);
-
-//TODO: MAKE ANGULARISH
-$("body").css("cursor", "wait");
+					
+					// This randomness query takes a few seconds to respond, so
+					// set var so that cursor waiting indicator turns on for the ng-view div.
+					// (It will go out of scope when response so no need to turn off anywhere;
+					//  cursor: default will automatically replace it.)
+					$scope.waitingForResponse = true;
 					dbpResults.getDbpediaResults(getIdSparqlQuery).success(function(data) {
 						var dbpResultsGetId = data.results.bindings;
 						var id = '';
@@ -45,8 +49,6 @@ $("body").css("cursor", "wait");
 							id = dbpResultsGetId[0].id.value;
 						}
 						// route to the musician with the wikiPageId chosen by dbpedia
-//TODO: MAKE ANGULARISH
-$("body").css("cursor", "default");
 						$location.path('/musician/' + id);
 					}); 
 				}
@@ -55,7 +57,6 @@ $("body").css("cursor", "default");
 				getCountSparqlQuery = getCountSparqlQuery.replace('--REPLACE_GENRE_RESOURCE--', dbpResource);
 				getIdSparqlQuery = sparqlQueries.getQueryStr(data, 'randomIdForGenreQuery');
 				getIdSparqlQuery = getIdSparqlQuery.replace('--REPLACE_GENRE_RESOURCE--', dbpResource);
-
 				dbpResults.getDbpediaResults(getCountSparqlQuery).success(function(data) {
 					var dbpResultsGetCnt = data.results.bindings;
 					var cnt = 0;
@@ -70,7 +71,6 @@ $("body").css("cursor", "default");
 							// Substitute in the random offset which will result in a random record from
 							// all the possible musicians.
 							getIdSparqlQuery = getIdSparqlQuery.replace('--REPLACE_OFFSET--', randInt);
-
 							dbpResults.getDbpediaResults(getIdSparqlQuery).success(function(data) {
 								var dbpResultsGetId = data.results.bindings;
 								var id = '';

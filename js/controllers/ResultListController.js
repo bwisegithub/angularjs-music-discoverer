@@ -1,4 +1,5 @@
-app.controller('ResultListController', ['$scope', '$location', 'sparqlQueries', 'dbpResults', function($scope, $location, sparqlQueries, dbpResults) {
+app.controller('ResultListController', ['$scope', '$location', 'sparqlQueries', 'dbpResults', 
+	function($scope, $location, sparqlQueries, dbpResults) {
 
 	$scope.controllerData = { headerKey: 'Search Result List' };
 
