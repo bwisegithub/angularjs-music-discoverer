@@ -36,6 +36,8 @@ app.controller('SearchController', ['$scope', '$location', 'sparqlQueries', 'dbp
 					// all the possible musicians.
 					getIdSparqlQuery = getIdSparqlQuery.replace('--REPLACE_OFFSET--', randInt);
 
+//TODO: MAKE ANGULARISH
+$("body").css("cursor", "wait");
 					dbpResults.getDbpediaResults(getIdSparqlQuery).success(function(data) {
 						var dbpResultsGetId = data.results.bindings;
 						var id = '';
@@ -43,6 +45,8 @@ app.controller('SearchController', ['$scope', '$location', 'sparqlQueries', 'dbp
 							id = dbpResultsGetId[0].id.value;
 						}
 						// route to the musician with the wikiPageId chosen by dbpedia
+//TODO: MAKE ANGULARISH
+$("body").css("cursor", "default");
 						$location.path('/musician/' + id);
 					}); 
 				}
@@ -74,6 +78,7 @@ app.controller('SearchController', ['$scope', '$location', 'sparqlQueries', 'dbp
 									id = dbpResultsGetId[0].id.value;
 								}
 								// route to the musician with the wikiPageId chosen by dbpedia
+								$("body").css("cursor", "default");
 								$location.path('/musician/' + id);
 							}); 
 						}
