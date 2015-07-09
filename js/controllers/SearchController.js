@@ -39,18 +39,21 @@ app.controller('SearchController', ['$rootScope', '$scope', '$location', 'sparql
 					
 					// This randomness query takes a few seconds to respond, so
 					// set var so that cursor waiting indicator turns on for the ng-view div.
-					// (It will go out of scope when response so no need to turn off anywhere;
-					//  cursor: default will automatically replace it.)
 					$scope.waitingForResponse = true;
-					dbpResults.getDbpediaResults(getIdSparqlQuery).success(function(data) {
-						var dbpResultsGetId = data.results.bindings;
-						var id = '';
-						if (dbpResultsGetId.length === 1) {
-							id = dbpResultsGetId[0].id.value;
-						}
-						// route to the musician with the wikiPageId chosen by dbpedia
-						$location.path('/musician/' + id);
-					}); 
+					dbpResults.getDbpediaResults(getIdSparqlQuery)
+						.success(function(data) {
+							$scope.waitingForResponse = false;
+							var dbpResultsGetId = data.results.bindings;
+							var id = '';
+							if (dbpResultsGetId.length === 1) {
+								id = dbpResultsGetId[0].id.value;
+							}
+							// route to the musician with the wikiPageId chosen by dbpedia
+							$location.path('/musician/' + id);
+						})
+						.error(function(err) {
+							$scope.waitingForResponse = false;
+						}); 
 				}
 			} else if (randomnessType === 'genre') {
 				getCountSparqlQuery = sparqlQueries.getQueryStr(data, 'countForGenreQuery');
