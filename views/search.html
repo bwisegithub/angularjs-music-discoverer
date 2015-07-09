@@ -2,11 +2,11 @@
 
 <form name="searchForm" novalidate>
 <div>
-	<input type="text"
+	<input class="input-search" type="text"
 		name="searchKeywords"
 		ng-model="searchKeywords"
 		required
-		placeholder="Search for musician or band"
+		placeholder="Search for musician or band ..."
 		ng-pattern="/^[a-zA-Z0-9\s]*$/"
 		ng-keyup="$event.keyCode == 13 && searchForm.searchKeywords.$valid && search(searchKeywords)"/>
 	<span ng-show="searchForm.searchKeywords.$dirty && (searchForm.searchKeywords.$error.required || searchForm.searchKeywords.$invalid)">Enter musician or band name.  Letters, numbers and spaces allowed.</span>

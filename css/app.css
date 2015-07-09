@@ -1,20 +1,72 @@
 /**
  * music-discoverer specific styles
+ * (Override tactile_screen.css)
  */
+h1 {
+  font-size: 30px;
+}
+
+hr {
+  padding-bottom: .5em;
+}
+
+form {
+	padding: 0px;
+	background: none;
+}
+
+input:focus {
+    outline: 1px solid #e7e7e7;
+}
+
 .button {
 	-webkit-box-sizing: initial;
 	-moz-box-sizing: initial;
 	box-sizing: initial;
 }
 
+.input-search {
+	width: 100%;
+	margin: 0px;
+	border: 1px inset #e7e7e7;
+	border-radius: 5px;
+	padding: 16px;
+	background-color: black;
+	color: #e7e7e7;
+}
+
 #view-on-github {
-  margin-right: 14px;
+	margin-right: 14px;
 }
 
 #download-tar-gz {
-  margin-right: 0;
+	margin-right: 0;
 }
 
 .cursor-waiting {
-  cursor: wait;
+	cursor: wait;
 }
+
+
+/* #Media Queries
+================================================== */
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+
+	header h1 {
+		font-size: 36px; font-weight: 900;
+		line-height: 1.2;
+		letter-spacing: -1px;
+	}
+
+	header h2 {
+		font-size: 20px;
+		line-height: 1.3;
+	}
+
+	footer {
+		font-size: 11px;
+	}
+}
+
