@@ -9,7 +9,9 @@ app.directive('mdFallbackSrc', function() {
 					angular.element(this).remove();
 				}
 				else {
-					// Use the iAttrs.mdFallbackSrc for the fallback img
+					// Use the iAttrs.mdFallbackSrc for the fallback img.
+					// NOTE: Currently not availing of this in the app, but leaving in 
+					// for possible future use.
 					angular.element(this).attr('src', iAttrs.mdFallbackSrc);
 				}
 			});
