@@ -1,27 +1,32 @@
-<h1>{{ controllerData.headerKey }}</h1>
+<h1>musician search</h1>
 
-<form name="searchForm" novalidate>
-<div>
-	<input class="input-search" type="text"
-		name="searchKeywords"
-		ng-model="searchKeywords"
-		required
-		placeholder="Search for musician or band ..."
-		ng-pattern="/^[a-zA-Z0-9\s]*$/"
-		ng-keyup="$event.keyCode == 13 && searchForm.searchKeywords.$valid && search(searchKeywords)"/>
-	<span ng-show="searchForm.searchKeywords.$dirty && (searchForm.searchKeywords.$error.required || searchForm.searchKeywords.$invalid)">Enter musician or band name.  Letters, numbers and spaces allowed.</span>
-</div>
-</form>
+<section id="searchSection">
 
-<div>
-	<a ng-click="searchForm.searchKeywords.$valid && search(searchKeywords)">
-		<i class="fa fa-search fa-fw"></i> search
-	</a>
-</div>
-<div>
-	<a ng-click="random('id','')">
-		<i class="fa fa-gift fa-fw"></i> surprise me
-	</a>
-</div>
-<md-results-placeholder mdresplaceholder="waitingForResponse?'show':'hide'"></md-results-placeholder>
+	<form name="searchForm" novalidate>
+		<div>
+			<input class="input-search" 
+			    type="search"
+				name="searchKeywords"
+				alt="search"
+				ng-model="searchKeywords"
+				required
+				placeholder="Search for musician or band ..."
+				ng-pattern="/^[a-zA-Z0-9\s]*$/"
+				ng-keyup="$event.keyCode == 13 && searchForm.searchKeywords.$valid && search(searchKeywords)" />
+			<span ng-show="searchForm.searchKeywords.$dirty && (searchForm.searchKeywords.$error.required || searchForm.searchKeywords.$invalid)">enter musician or band name.  letters, numbers and spaces allowed.</span>
+		</div>
+	</form>
+	<div class="text-center">
+		<div class="btn-group">
+			<a ng-click="searchForm.searchKeywords.$valid && search(searchKeywords)" id="search-button" class="btn btn-default btn-sm">
+				<span><i class="fa fa-search fa-fw"></i> search</span>
+			</a>
+			<a ng-click="random('id','')" id="random-button" class="btn btn-default btn-sm">
+				<span><i class="fa fa-gift fa-fw"></i> surprise me</span>
+			</a>
+		</div>
+	</div>
+	<md-results-placeholder mdresplaceholder="waitingForResponse?'show':'hide'"></md-results-placeholder>
+</section>
+
 

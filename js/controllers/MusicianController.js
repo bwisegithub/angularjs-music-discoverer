@@ -1,8 +1,6 @@
 app.controller('MusicianController', ['$scope', '$routeParams', 'sparqlQueries', 'dbpResults', 
 	function($scope, $routeParams, sparqlQueries, dbpResults) {
 
-	$scope.controllerData = { headerKey: 'Musician Details' };
-
 	// Get the sparql query string for the musician
 	// then execute it on dbpedia for the given routeParams id
 	sparqlQueries.getData().success(function(data) {

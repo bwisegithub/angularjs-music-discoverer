@@ -1,5 +1,5 @@
 <ng-include src="'views/include_new_search.html'"></ng-include>
-<h1>{{ controllerData.headerKey }}</h1>
+<h1>musician details</h1>
 <md-results-placeholder mdresplaceholder="dbpResultsMusician"></md-results-placeholder>
 <div>
 	<md-img mdimgval="dbpResultsMusician[0].thumbnail.value"></md-img>
@@ -11,7 +11,7 @@
 		<span>{{ musician.genre_label.value }}</span>
 	</a>
 </div>
-<h2>Associated Musicians</h2>
+<h2>associated musicians</h2>
 <div ng-repeat="associate in dbpResultsAssociates | filter:isNotFeaturedMusician">
 	<a href="#/musician/{{ associate.id.value }}">
 		<md-img mdimgval="associate.thumbnail.value"></md-img>

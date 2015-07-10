@@ -1,8 +1,6 @@
 app.controller('ResultListController', ['$scope', '$location', 'sparqlQueries', 'dbpResults', 
 	function($scope, $location, sparqlQueries, dbpResults) {
 
-	$scope.controllerData = { headerKey: 'Search Result List' };
-
 	// Get the appropriate sparql query string
 	// then execute it on dbpedia
 	sparqlQueries.getData().success(function(data) {

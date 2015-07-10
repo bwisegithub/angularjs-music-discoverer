@@ -17,7 +17,7 @@ form {
 
 input:focus {
 	outline: none;
-    border: 1px inset #52F6FF;
+	border: 1px inset #52F6FF;
 }
 
 .button {
@@ -28,7 +28,8 @@ input:focus {
 
 .input-search {
 	width: 100%;
-	margin: 0px;
+	margin-top: 15px;
+	margin-bottom: 15px;
 	border: 1px inset #e7e7e7;
 	border-radius: 5px;
 	padding: 16px;
@@ -43,7 +44,6 @@ input:focus {
 #download-tar-gz {
 	margin-right: 0;
 }
-
 
 /* #Media Queries
 ================================================== */
@@ -64,6 +64,10 @@ input:focus {
 
 	footer {
 		font-size: 11px;
+	}
+
+	#view-on-github {
+		margin: 0 auto;
 	}
 }
 

@@ -1,5 +1,5 @@
 <ng-include src="'views/include_new_search.html'"></ng-include>
-<h1>{{ controllerData.headerKey }}</h1>
+<h1>possible matches</h1>
 <md-results-placeholder mdresplaceholder="dbpResults"></md-results-placeholder>
 <div ng-repeat="result in dbpResults">
 	<a href="#/musician/{{ result.id.value }}">

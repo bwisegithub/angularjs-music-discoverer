@@ -1,8 +1,6 @@
 app.controller('SearchController', ['$scope', '$location', 'sparqlQueries', 'dbpResults', 
 	function($scope, $location, sparqlQueries, dbpResults) {
 
-	$scope.controllerData = { headerKey: 'Musician Search' };
-
 	$scope.search = function(paramSearchKeywords) {
 		dbpResults.setSearchKeywords(paramSearchKeywords);
 		$location.path('/resultlist');
