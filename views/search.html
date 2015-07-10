@@ -1,6 +1,6 @@
-<h1>musician search</h1>
+<h1>search</h1>
 
-<section id="searchSection">
+<section id="search">
 
 	<form name="searchForm" novalidate>
 		<div>
@@ -10,12 +10,13 @@
 				alt="search"
 				ng-model="searchKeywords"
 				required
-				placeholder="Search for musician or band ..."
+				placeholder="search for musician or band ..."
 				ng-pattern="/^[a-zA-Z0-9\s]*$/"
 				ng-keyup="$event.keyCode == 13 && searchForm.searchKeywords.$valid && search(searchKeywords)" />
 			<span ng-show="searchForm.searchKeywords.$dirty && (searchForm.searchKeywords.$error.required || searchForm.searchKeywords.$invalid)">enter musician or band name.  letters, numbers and spaces allowed.</span>
 		</div>
 	</form>
+
 	<div class="text-center">
 		<div class="btn-group">
 			<a ng-click="searchForm.searchKeywords.$valid && search(searchKeywords)" class="btn btn-default">
@@ -26,7 +27,9 @@
 			</a>
 		</div>
 	</div>
+
 	<md-results-placeholder mdresplaceholder="waitingForResponse?'show':'hide'"></md-results-placeholder>
+
 </section>
 
 

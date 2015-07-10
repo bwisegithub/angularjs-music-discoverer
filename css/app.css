@@ -84,6 +84,7 @@ input:focus {
 
 	#view-on-github {
 		margin: 0 auto;
+		float: none;
 	}
 }
 
