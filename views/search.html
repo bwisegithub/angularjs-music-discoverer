@@ -13,6 +13,15 @@
 </div>
 </form>
 
-<div><a ng-click="random('id','')">random</a></div>
-
+<div>
+	<a ng-click="searchForm.searchKeywords.$valid && search(searchKeywords)">
+		<i class="fa fa-search fa-fw"></i> search
+	</a>
+</div>
+<div>
+	<a ng-click="random('id','')">
+		<i class="fa fa-gift fa-fw"></i> surprise me
+	</a>
+</div>
+<md-results-placeholder mdresplaceholder="waitingForResponse?'show':'hide'"></md-results-placeholder>
 
