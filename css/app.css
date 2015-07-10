@@ -17,6 +17,7 @@ a.button {
 }
 
 a.button span {
+	height: initial;
 	padding-left: 55px;
 }
 

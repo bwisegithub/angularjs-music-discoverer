@@ -1,5 +1,6 @@
 <ng-include src="'views/include_new_search.html'"></ng-include>
-<h1>musician details</h1>
+<h1>{{ dbpResultsMusician[0].resource_label.value.length > 0 ? dbpResultsMusician[0].resource_label.value : 'musician details'}}
+</h1>
 <md-results-placeholder mdresplaceholder="dbpResultsMusician"></md-results-placeholder>
 <div>
 	<md-img mdimgval="dbpResultsMusician[0].thumbnail.value"></md-img>
