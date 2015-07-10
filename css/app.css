@@ -11,7 +11,13 @@ hr {
 }
 
 a.button {
-	padding: 8px 8px 8px 8px;
+	padding: 6px 8px 6px 8px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+a.button span {
+	padding-left: 55px;
 }
 
 form {
@@ -30,6 +36,16 @@ input:focus {
 	box-sizing: initial;
 }
 
+.btn.btn-default.button.search {
+	margin-right: 0px;
+	width: auto;
+	font-size: 14px;
+}
+
+.btn.btn-default.button.search span {
+	padding-left: 0px;
+}
+
 .input-search {
 	width: 100%;
 	margin-top: 15px;
@@ -39,6 +55,15 @@ input:focus {
 	padding: 16px;
 	background-color: black;
 	color: #e7e7e7;
+}
+
+.input-validation {
+	margin-top: 0px;
+	margin-bottom: 15px;
+	color: #d5000d;
+	font-size: 14px;
+	font-style: italic;
+	text-align: center;
 }
 
 #downloads {

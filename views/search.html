@@ -13,16 +13,18 @@
 				placeholder="search for musician or band ..."
 				ng-pattern="/^[a-zA-Z0-9\s]*$/"
 				ng-keyup="$event.keyCode == 13 && searchForm.searchKeywords.$valid && search(searchKeywords)" />
-			<span ng-show="searchForm.searchKeywords.$dirty && (searchForm.searchKeywords.$error.required || searchForm.searchKeywords.$invalid)">enter musician or band name.  letters, numbers and spaces allowed.</span>
+			<div class="input-validation" ng-show="(searchForm.searchKeywords.$dirty || searchButtonClicked) && (searchForm.searchKeywords.$error.required || searchForm.searchKeywords.$invalid)">
+				<span>enter musician or band name.<br>letters, numbers and spaces allowed.</span>
+			</div>
 		</div>
 	</form>
 
 	<div class="text-center">
 		<div class="btn-group">
-			<a ng-click="searchForm.searchKeywords.$valid && search(searchKeywords)" class="btn btn-default">
+			<a class="btn btn-default button search" id="searchButton" ng-click="searchButtonClicked=true; searchForm.searchKeywords.$valid && search(searchKeywords)" >
 				<span><i class="fa fa-search fa-lg"></i> search</span>
 			</a>
-			<a ng-click="random('id','')" class="btn btn-default">
+			<a class="btn btn-default button search" ng-click="random('id','')">
 				<span><i class="fa fa-gift fa-lg"></i> surprise me</span>
 			</a>
 		</div>
