@@ -18,7 +18,7 @@ a.button {
 
 a.button span {
 	height: initial;
-	padding-left: 55px;
+	padding-left: 0px;
 }
 
 ul li {
@@ -42,15 +42,20 @@ input:focus {
 	box-sizing: initial;
 }
 
+.button.thumb-btn {
+	width: 275px;
+	margin-bottom: 14px;
+	padding: 20px 8px 20px 8px;
+	text-align: center;
+}
+
 .btn.btn-default.button.search {
 	margin-right: 0px;
 	width: auto;
 	font-size: 14px;
 }
 
-.btn.btn-default.button.search span {
-	padding-left: 0px;
-}
+
 
 .input-search {
 	width: 100%;
@@ -71,8 +76,17 @@ input:focus {
 	font-style: italic;
 }
 
+.results-img {
+	height: 200px;
+	width: 200px;
+}
+
 #downloads {
 	margin-bottom: 25px;
+}
+
+#downloads a.button span {
+	padding-left: 55px;
 }
 
 #view-on-github {

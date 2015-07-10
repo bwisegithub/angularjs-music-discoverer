@@ -1,9 +1,29 @@
 <ng-include src="'views/include_new_search.html'"></ng-include>
 <h1>possible matches</h1>
-<md-results-placeholder mdresplaceholder="dbpResults"></md-results-placeholder>
-<div ng-repeat="result in dbpResults">
-	<a href="#/musician/{{ result.id.value }}">
-		<md-img mdimgval="result.thumbnail.value"></md-img>
-		<span>{{ result.label.value }}</span>
-	</a>
-</div>
+
+<section id="searchResults">
+	<md-results-placeholder mdresplaceholder="dbpResults"></md-results-placeholder>
+
+	<div ng-repeat="result in dbpResults">
+		<span ng-switch on="$index % 2">
+			<span ng-switch-when="0">
+				<div class="row">
+					<div class="col-md-6" ng-show="dbpResults[$index+0]">
+						<a href="#/musician/{{ dbpResults[$index+0].id.value }}" class="button thumb-btn">
+							<span>{{ dbpResults[$index+0].label.value }}</span> 
+							<md-img mdimgclass="'results-img'" mdimgval="dbpResults[$index+0].thumbnail.value" mdimgalt="dbpResults[$index+0].label.value"></md-img>
+						</a>
+					</div>
+					<div class="col-md-6" ng-show="dbpResults[$index+1]">
+						<a href="#/musician/{{ dbpResults[$index+1].id.value }}" class="button thumb-btn">
+							<span>{{ dbpResults[$index+1].label.value }}</span> 
+							<md-img mdimgclass="'results-img'" mdimgval="dbpResults[$index+1].thumbnail.value" mdimgalt="dbpResults[$index+1].label.value"></md-img>
+						</a>
+					</div>
+				</div>
+			</span>
+		</span>
+	</div>
+
+</section>
+
