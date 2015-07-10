@@ -2,7 +2,8 @@ app.directive('mdImg', function() {
   return { 
 		restrict: 'E', 
 		scope: { 
-			mdimgval: '=' 
+			mdimgval: '=',
+			mdimgalt: '='
 		}, 
 		templateUrl: 'js/directives/mdImg.html' 
 	}; 
