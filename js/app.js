@@ -6,7 +6,7 @@ app.config(function ($routeProvider) {
 	  		controller: 'SearchController', 
 	  		templateUrl: 'views/search.html' 
 		}) 
-		.when('/resultlist', { 
+		.when('/resultlist/:searchKeywords', { 
 	  		controller: 'ResultListController', 
 	  		templateUrl: 'views/result_list.html' 
 		}) 

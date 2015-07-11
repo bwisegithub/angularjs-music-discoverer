@@ -2,8 +2,7 @@ app.controller('SearchController', ['$scope', '$location', 'sparqlQueries', 'dbp
 	function($scope, $location, sparqlQueries, dbpResults) {
 
 	$scope.search = function(paramSearchKeywords) {
-		dbpResults.setSearchKeywords(paramSearchKeywords);
-		$location.path('/resultlist');
+		$location.path('/resultlist/' + paramSearchKeywords);
 	};
 
 	$scope.random = function(randomnessType, dbpResource) {

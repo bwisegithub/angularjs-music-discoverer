@@ -1,5 +1,5 @@
-app.controller('ResultListController', ['$scope', '$location', 'sparqlQueries', 'dbpResults', 
-	function($scope, $location, sparqlQueries, dbpResults) {
+app.controller('ResultListController', ['$scope', '$routeParams', '$location', 'sparqlQueries', 'dbpResults', 
+	function($scope, $routeParams, $location, sparqlQueries, dbpResults) {
 
 	// Get the appropriate sparql query string
 	// then execute it on dbpedia
@@ -7,7 +7,7 @@ app.controller('ResultListController', ['$scope', '$location', 'sparqlQueries', 
 		var sparqlQuery = sparqlQueries.getQueryStr(data, 'keywordSearchQuery');
 
 		// Get the keywords entered by user
-		var searchKeywords = dbpResults.getSearchKeywords();
+		var searchKeywords = $routeParams.searchKeywords;
 
 		if (searchKeywords && searchKeywords.length > 0) {
 			// Substitute in the search keywords.  
