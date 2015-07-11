@@ -18,9 +18,6 @@ a.button {
 }
 
 a.button:hover {
-	color: #c5000c;
-	/*background-color: #e6e6e6;
-	border-color: #adadad;*/
 	background: #e6e6e6; /* Old browsers */
 	background: -moz-linear-gradient(top,  #fcfcfc 0%, #e6e6e6 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc), color-stop(100%,#e6e6e6)); /* Chrome,Safari4+ */
@@ -33,6 +30,8 @@ a.button:hover {
 	border-right: solid 1px #9a9a9a;
 	border-bottom: solid 1px #9a9a9a;
 	border-left: solid 1px #9a9a9a;
+	color: #c5000c;
+	text-decoration: none;
 }
 
 a.button span {
