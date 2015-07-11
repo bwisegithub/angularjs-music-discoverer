@@ -1,18 +1,22 @@
 app.directive('mdFallbackSrc', function() { 
 	return { 
 		restrict: 'A',
-		link: function postLink(scope, iElement, iAttrs) {
-			iElement.bind('error', function() {
+		link: function postLink(scope, element, attrs) {
+			element.bind('error', function() {
 				// There was an error finding the img src
-				if (iAttrs.mdFallbackSrc === 'none') {
+				if (attrs.mdFallbackSrc === 'none') {
+					// Keep for future reference:
 					// Remove the image element entirely
-					angular.element(this).remove();
+					// angular.element(this).remove();
+
+					// Remove the src attribute (as if the dbpedia thumbnail value never existed)
+					angular.element(this).removeAttr('src');
 				}
 				else {
-					// Use the iAttrs.mdFallbackSrc for the fallback img.
+					// Use the attrs.mdFallbackSrc for the fallback img.
 					// NOTE: Currently not availing of this in the app, but leaving in 
 					// for possible future use.
-					angular.element(this).attr('src', iAttrs.mdFallbackSrc);
+					angular.element(this).attr('src', attrs.mdFallbackSrc);
 				}
 			});
 		}

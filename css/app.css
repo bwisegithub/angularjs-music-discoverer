@@ -95,6 +95,11 @@ input:focus {
 	height: 200px;
 	width: 225px;
 	border: 2px inset #e7e7e7;
+	background-color: black;
+	font-family: 'Chivo', 'Helvetica Neue', Helvetica, Arial, serif;
+	font-size: 20px;
+	font-weight: normal;
+	color: white;
 }
 
 #downloads {
