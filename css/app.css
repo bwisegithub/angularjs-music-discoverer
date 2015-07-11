@@ -4,6 +4,7 @@
  */
 h1 {
 	font-size: 30px;
+	padding-bottom: 10px;
 }
 
 hr {
@@ -14,6 +15,24 @@ a.button {
 	padding: 6px 8px 6px 8px;
 	font-size: 13px;
 	font-weight: bold;
+}
+
+a.button:hover {
+	color: #c5000c;
+	/*background-color: #e6e6e6;
+	border-color: #adadad;*/
+	background: #e6e6e6; /* Old browsers */
+	background: -moz-linear-gradient(top,  #fcfcfc 0%, #e6e6e6 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc), color-stop(100%,#e6e6e6)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #fcfcfc 0%,#e6e6e6 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #fcfcfc 0%,#e6e6e6 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #fcfcfc 0%,#e6e6e6 100%); /* IE10+ */
+	background: linear-gradient(top,  #fcfcfc 0%,#e6e6e6, 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#e6e6e6',GradientType=0 ); /* IE6-9 */
+	border-top: solid 1px #b3b3b3;
+	border-right: solid 1px #9a9a9a;
+	border-bottom: solid 1px #9a9a9a;
+	border-left: solid 1px #9a9a9a;
 }
 
 a.button span {
@@ -45,7 +64,7 @@ input:focus {
 .button.thumb-btn {
 	width: 275px;
 	margin-bottom: 14px;
-	padding: 20px 8px 20px 8px;
+	padding: 20px 8px 30px 8px;
 	text-align: center;
 }
 
@@ -55,11 +74,8 @@ input:focus {
 	font-size: 14px;
 }
 
-
-
 .input-search {
 	width: 100%;
-	margin-top: 15px;
 	margin-bottom: 15px;
 	border: 1px inset #e7e7e7;
 	border-radius: 5px;
@@ -76,9 +92,10 @@ input:focus {
 	font-style: italic;
 }
 
-.results-img {
+.thumb-img {
 	height: 200px;
-	width: 200px;
+	width: 225px;
+	border: 2px inset #e7e7e7;
 }
 
 #downloads {
