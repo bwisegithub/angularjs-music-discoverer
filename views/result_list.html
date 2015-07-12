@@ -1,9 +1,8 @@
 <ng-include src="'views/include_new_search.html'"></ng-include>
 <h1>possible matches</h1>
+<md-results-placeholder mdresplaceholder="dbpResults"></md-results-placeholder>
 
 <section id="searchResults">
-	<md-results-placeholder mdresplaceholder="dbpResults"></md-results-placeholder>
-
 	<div ng-repeat="result in dbpResults">
 		<span ng-switch on="$index % 2">
 			<span ng-switch-when="0">
@@ -18,6 +17,5 @@
 			</span>
 		</span>
 	</div>
-
 </section>
 

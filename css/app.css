@@ -7,6 +7,10 @@ h1 {
 	padding-bottom: 10px;
 }
 
+p {
+	margin-bottom: 10px;
+}
+
 hr {
 	padding-bottom: .5em;
 }
@@ -67,6 +71,14 @@ input:focus {
 	text-align: center;
 }
 
+.button.featured-btn {
+	width: 275px;
+	margin-bottom: 14px;
+	padding: 10px 10px 40px 10px;
+	text-align: center;
+	border-radius: 4px;
+}
+
 .btn.btn-default.button.search {
 	margin-right: 0px;
 	width: auto;
@@ -99,6 +111,19 @@ input:focus {
 	font-family: 'Chivo', 'Helvetica Neue', Helvetica, Arial, serif;
 	font-size: 20px;
 	font-weight: normal;
+	text-align: center;
+	color: white;
+}
+
+.featured-img {
+	height: 275px;
+	width: 275px;
+	border: 1px ridge #e7e7e7;
+	background-color: black;
+	font-family: 'Chivo', 'Helvetica Neue', Helvetica, Arial, serif;
+	font-size: 24px;
+	font-weight: normal;
+	text-align: center;
 	color: white;
 }
 
