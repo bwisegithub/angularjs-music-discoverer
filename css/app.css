@@ -58,6 +58,21 @@ input:focus {
 	border: 1px inset #52F6FF;
 }
 
+footer a:visited {
+	color: #666;
+	text-decoration: none;
+}
+
+footer a:hover {
+	color: #c5000c;
+	text-decoration: none;
+}
+
+footer a:active {
+	color: #666;
+	text-decoration: none;
+}
+
 .button {
 	-webkit-box-sizing: initial;
 	-moz-box-sizing: initial;
@@ -127,6 +142,10 @@ input:focus {
 	color: white;
 }
 
+.results-placeholder {
+	padding-top: 5px;
+}
+
 #downloads {
 	margin-bottom: 25px;
 }
@@ -158,6 +177,10 @@ input:focus {
 	header h2 {
 		font-size: 19px;
 		line-height: 1;
+	}
+
+	h1 {
+		padding-bottom: 1px;
 	}
 
 	footer {
