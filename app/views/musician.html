@@ -28,6 +28,20 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h2>associated musicians</h2>
+				<carousel>
+					<slide ng-repeat="associate in dbpResultsAssociates | filter:isNotFeaturedMusician" active="associate.active">
+						<md-thumb-img mdthumbobj="dbpResultsAssociates[$index+0]"></md-thumb-img>
+						<md-thumb-img mdthumbobj="dbpResultsAssociates[$index+1]"></md-thumb-img>
+					</slide>
+				</carousel>
+		</div>
+	</div>
+</section>
+
+<section id="musician-associates">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>associated musicians</h2>
 			<div ng-repeat="associate in dbpResultsAssociates | filter:isNotFeaturedMusician">
 				<md-thumb-img mdthumbobj="associate"></md-thumb-img>
 			<div>
