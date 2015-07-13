@@ -89,7 +89,7 @@ footer a:active {
 .button.featured-btn {
 	width: 275px;
 	margin-bottom: 14px;
-	padding: 10px 10px 40px 10px;
+	padding: 10px 10px 10px 10px;
 	text-align: center;
 	border-radius: 4px;
 }
@@ -133,7 +133,8 @@ footer a:active {
 .featured-img {
 	height: 275px;
 	width: 275px;
-	border: 1px ridge #e7e7e7;
+	border: 1px solid #e7e7e7;
+	vertical-align: middle;
 	background-color: black;
 	font-family: 'Chivo', 'Helvetica Neue', Helvetica, Arial, serif;
 	font-size: 24px;
