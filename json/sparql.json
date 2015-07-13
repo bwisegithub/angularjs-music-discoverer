@@ -93,6 +93,7 @@
 					"  ?resource",
 					"  (STR(?resource_label) AS ?resource_label)",
 					"  ?thumbnail",
+					"  REPLACE( STR(?thumbnail), \"Special:FilePath/\", \"File:\" ) as ?thumbnail_wm_link",
 					"  (STR(?comment) AS ?comment)",
 					"  ?genre_resource",
 					"  (STR(?genre_label) AS ?genre_label)",
