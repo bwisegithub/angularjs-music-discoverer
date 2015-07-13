@@ -161,6 +161,31 @@ footer a:active {
 	border-top-color: #c5000c;
 }
 
+.carousel-control.left {
+	background-image: none;
+	color: #c5000c;
+	margin-left: -25px;
+}
+
+.carousel-control.right {
+	background-image: none;
+	color: #c5000c;
+	margin-right: -5px;
+}
+
+.carousel-indicators {
+	bottom: 10px;
+	margin-left: -31.5%;
+}
+
+.carousel-indicators li {
+	border: 1px solid #b7b7b7;
+}
+
+.carousel-indicators .active {
+	background-color: #c5000c;
+}
+
 #downloads {
 	margin-bottom: 25px;
 }
@@ -181,22 +206,6 @@ footer a:active {
 	margin-top: 21px;
 }
 
-
-
-#slides_control > div{
-  height: 200px;
-}
-img{
-  margin:auto;
-  width: 400px;
-}
-#slides_control {
-  position:absolute;
-  width: 400px;
-  left:50%;
-  top:20px;
- margin-left:-200px;
-}
 
 /* #Media Queries
 ================================================== */
