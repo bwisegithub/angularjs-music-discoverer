@@ -153,6 +153,14 @@ footer a:active {
 	padding-top: 5px;
 }
 
+.tooltip.top .tooltip-inner {
+	background-color: #c5000c;
+}
+
+.tooltip.top .tooltip-arrow {
+	border-top-color: #c5000c;
+}
+
 #downloads {
 	margin-bottom: 25px;
 }
@@ -169,12 +177,8 @@ footer a:active {
 	margin-right: 0;
 }
 
-.tooltip.top .tooltip-inner {
-	background-color: #c5000c;
-}
-
-.tooltip.top .tooltip-arrow {
-	border-top-color: #c5000c;
+#musician-associates h2 {
+	margin-top: 21px;
 }
 
 /* #Media Queries
