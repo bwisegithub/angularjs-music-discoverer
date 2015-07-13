@@ -4,6 +4,6 @@ app.directive('mdThumbImg', function() {
 		scope: { 
 			mdthumbobj: '='
 		}, 
-		templateUrl: 'js/directives/mdThumbImg.html' 
+		templateUrl: 'app/directives/mdThumbImg.html' 
 	}; 
 });

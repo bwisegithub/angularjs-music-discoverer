@@ -2,7 +2,7 @@ app.factory('sparqlQueries', ['$http', function($http) {
 
 	return {
 		getData: function() { 
-			return $http.get('json/sparql.json')
+			return $http.get('app/json/sparql.json')
 				.success(function(data) {
 					return data;
 				})

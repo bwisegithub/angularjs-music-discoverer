@@ -6,6 +6,6 @@ app.directive('mdImg', function() {
 			mdimgalt: '=',
 			mdimgclass: '='
 		}, 
-		templateUrl: 'js/directives/mdImg.html' 
+		templateUrl: 'app/directives/mdImg.html' 
 	}; 
 });

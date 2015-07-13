@@ -4,6 +4,6 @@ app.directive('mdFeaturedImg', function() {
 		scope: { 
 			mdfeaturedobj: '='
 		}, 
-		templateUrl: 'js/directives/mdFeaturedImg.html' 
+		templateUrl: 'app/directives/mdFeaturedImg.html' 
 	}; 
 });

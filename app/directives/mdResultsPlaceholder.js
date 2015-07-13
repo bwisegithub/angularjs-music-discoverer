@@ -4,6 +4,6 @@ app.directive('mdResultsPlaceholder', function() {
 		scope: { 
 			mdresplaceholder: '=' 
 		}, 
-		templateUrl: 'js/directives/mdResultsPlaceholder.html' 
+		templateUrl: 'app/directives/mdResultsPlaceholder.html' 
 	}; 
 });

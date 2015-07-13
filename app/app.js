@@ -4,15 +4,15 @@ app.config(function ($routeProvider) {
  	$routeProvider 
 		.when('/', { 
 	  		controller: 'SearchController', 
-	  		templateUrl: 'views/search.html' 
+	  		templateUrl: 'app/views/search.html' 
 		}) 
 		.when('/resultlist/:searchKeywords', { 
 	  		controller: 'ResultListController', 
-	  		templateUrl: 'views/result_list.html' 
+	  		templateUrl: 'app/views/result_list.html' 
 		}) 
 		.when('/musician/:id', { 
 	  		controller: 'MusicianController', 
-	  		templateUrl: 'views/musician.html' 
+	  		templateUrl: 'app/views/musician.html' 
 		})
 		.otherwise({ 
       		redirectTo: '/' 
