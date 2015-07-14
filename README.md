@@ -1,5 +1,5 @@
 # music-discoverer
-Web-based tool to discover musician-relatedness and view latest associated tweets
+Web-based tool to discover musician-relatedness
 
 TODO: Lots
 
