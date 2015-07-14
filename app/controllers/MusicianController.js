@@ -70,15 +70,4 @@ app.controller('MusicianController', ['$scope', '$routeParams', 'sparqlQueries',
 			}); 
 		}		
 	}); 
-
-	$scope.isNotFeaturedMusician = function(associate) {
-		return !(associate.id.value === $routeParams.id);
-	};
-	
-	$scope.imgNotFound = function(image) {
-	    image.onerror = '';
-	    image.src = '/images/imageNotFound.gif';
-	    return true;
-	}
-
 }]);
