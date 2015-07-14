@@ -13,7 +13,7 @@
 				placeholder="search for musician or band ..."
 				ng-pattern="/^[a-zA-Z0-9\s]*$/"
 				ng-keyup="$event.keyCode == 13 && searchForm.searchKeywords.$valid && search(searchKeywords)" />
-			<div class="input-validation" ng-show="(searchForm.searchKeywords.$dirty || searchButtonClicked) && (searchForm.searchKeywords.$error.required || searchForm.searchKeywords.$invalid)">
+			<div class="input-validation" ng-if="(searchForm.searchKeywords.$dirty || searchButtonClicked) && (searchForm.searchKeywords.$error.required || searchForm.searchKeywords.$invalid)">
 				<ul class="fa-ul">
 					<li><i class="fa-li fa fa-arrow-circle-right fa-fw"></i>enter musician or band name</li>
 					<li><i class="fa-li fa fa-arrow-circle-right fa-fw"></i>letters, numbers and spaces allowed</li>

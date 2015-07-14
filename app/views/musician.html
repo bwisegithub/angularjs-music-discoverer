@@ -15,7 +15,7 @@
 			<div>
 				<p>{{ dbpResultsMusician[0].comment.value }}</p>
 				<div ng-repeat="musician in dbpResultsMusician">
-					<a class="btn btn-default button search sm" ng-controller="SearchController" ng-show="musician.genre_label.value.length > 0" data-toggle="tooltip" data-placement="auto" title="Show me another {{ musician.genre_label.value }} musician" ng-click="random('genre', musician.genre_resource.value)" md-tooltip>
+					<a class="btn btn-default button search sm" ng-controller="SearchController" ng-if="musician.genre_label.value.length > 0" data-toggle="tooltip" data-placement="auto" title="Show me another {{ musician.genre_label.value }} musician" ng-click="random('genre', musician.genre_resource.value)" md-tooltip>
 						<span>{{ musician.genre_label.value }}</span>
 					</a>
 				</div>
