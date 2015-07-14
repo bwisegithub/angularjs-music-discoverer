@@ -162,6 +162,10 @@ footer a:active {
 	border-top-color: #c5000c;
 }
 
+.carousel {
+	margin-bottom: 36px;
+}
+
 .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
 	margin-top: -20px;
 }
@@ -179,7 +183,7 @@ footer a:active {
 }
 
 .carousel-indicators {
-	bottom: 5px;
+	bottom: -60px;
 	margin-left: -31.5%;
 	left: 40%;
 	width: 80%;
