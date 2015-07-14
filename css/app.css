@@ -267,6 +267,14 @@ footer a:active {
 		padding-bottom: 1px;
 	}
 
+	a.button.featured-btn {
+		margin-right: 0px;
+	}
+
+	a.button.thumb-btn {
+		margin-right: 0px;
+	}
+
 	.carousel-control.left {
 		margin-left: -20px;
 	}
