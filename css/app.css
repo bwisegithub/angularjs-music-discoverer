@@ -161,6 +161,10 @@ footer a:active {
 	border-top-color: #c5000c;
 }
 
+.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
+	margin-top: -20px;
+}
+
 .carousel-control.left {
 	background-image: none;
 	color: #c5000c;
@@ -174,15 +178,25 @@ footer a:active {
 }
 
 .carousel-indicators {
-	bottom: 10px;
+	bottom: 5px;
 	margin-left: -31.5%;
+	left: 40%;
+	width: 80%;
 }
 
 .carousel-indicators li {
+	height: 13px;
+	width: 13px;
 	border: 1px solid #b7b7b7;
 }
 
+.carousel-indicators  li:hover {
+	border: 1px solid #c5000c;
+}
+
 .carousel-indicators .active {
+	height: 15px;
+	width: 15px;
 	background-color: #c5000c;
 }
 
@@ -234,6 +248,14 @@ footer a:active {
 
 	hr {
 		padding-bottom: 1px;
+	}
+
+	.carousel-control.left {
+		margin-left: -20px;
+	}
+
+	.carousel-control.right {
+		margin-right: 0px;
 	}
 
 	#downloads {
