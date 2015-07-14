@@ -172,13 +172,13 @@ footer a:active {
 
 .carousel-control.left {
 	background-image: none;
-	color: #c5000c;
+	color: inherit;
 	margin-left: -25px;
 }
 
 .carousel-control.right {
 	background-image: none;
-	color: #c5000c;
+	color: inherit;
 	margin-right: -5px;
 }
 
@@ -196,13 +196,13 @@ footer a:active {
 }
 
 .carousel-indicators  li:hover {
-	border: 1px solid #c5000c;
+	border: 1px solid inherit;
 }
 
 .carousel-indicators .active {
 	height: 15px;
 	width: 15px;
-	background-color: #c5000c;
+	background-color: inherit;
 }
 
 /* To work around side effect of clicking quickly
