@@ -2,6 +2,7 @@
  * music-discoverer specific styles
  * (Override tactile_screen.css)
  */
+
 h1 {
 	font-size: 30px;
 	padding-bottom: 10px;
@@ -153,6 +154,69 @@ footer a:active {
 	padding-top: 5px;
 }
 
+.tooltip.top .tooltip-inner {
+	background-color: #c5000c;
+}
+
+.tooltip.top .tooltip-arrow {
+	border-top-color: #c5000c;
+}
+
+.carousel {
+	margin-bottom: 36px;
+}
+
+.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
+	margin-top: -20px;
+}
+
+.carousel-control.left {
+	background-image: none;
+	color: #c5000c;
+	margin-left: -25px;
+}
+
+.carousel-control.right {
+	background-image: none;
+	color: #c5000c;
+	margin-right: -5px;
+}
+
+.carousel-indicators {
+	bottom: -60px;
+	margin-left: -31.5%;
+	left: 40%;
+	width: 80%;
+}
+
+.carousel-indicators li {
+	height: 13px;
+	width: 13px;
+	border: 1px solid #b7b7b7;
+}
+
+.carousel-indicators  li:hover {
+	border: 1px solid #c5000c;
+}
+
+.carousel-indicators .active {
+	height: 15px;
+	width: 15px;
+	background-color: #c5000c;
+}
+
+/* To work around side effect of clicking quickly
+   on carousel causes it to look "selected";
+   could use this elsewhere if needed */
+.no-select {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
 #downloads {
 	margin-bottom: 25px;
 }
@@ -169,13 +233,10 @@ footer a:active {
 	margin-right: 0;
 }
 
-.tooltip.top .tooltip-inner {
-	background-color: #c5000c;
+#musician-associates h2 {
+	margin-top: 21px;
 }
 
-.tooltip.top .tooltip-arrow {
-	border-top-color: #c5000c;
-}
 
 /* #Media Queries
 ================================================== */
@@ -204,6 +265,14 @@ footer a:active {
 
 	hr {
 		padding-bottom: 1px;
+	}
+
+	.carousel-control.left {
+		margin-left: -20px;
+	}
+
+	.carousel-control.right {
+		margin-right: 0px;
 	}
 
 	#downloads {

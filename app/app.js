@@ -1,4 +1,4 @@
-var app = angular.module('MusicDiscovererApp', ['ngRoute']);
+var app = angular.module('MusicDiscovererApp', ['ngRoute', 'ui.bootstrap']);
 
 app.config(function ($routeProvider) { 
  	$routeProvider 

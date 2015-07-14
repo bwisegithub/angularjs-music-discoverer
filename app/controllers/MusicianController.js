@@ -30,7 +30,39 @@ app.controller('MusicianController', ['$scope', '$routeParams', 'sparqlQueries',
 
 							// Get the associated musician info
 							dbpResults.getDbpediaResults(sparqlQuery).success(function(data) {
-								$scope.dbpResultsAssociates = data.results.bindings;
+								// Make two copy of the results
+								// orig - As is. Will use this in d3.js diagrams.
+								//        Includes the featured artist.
+								// filteredCopy - Remove the featured artist.
+								//        Use in associated musicians carousel.
+								//        (Tried using filter in expression for
+								//        carousel, but tricky because of wanting
+								//        to show two slides at a time in the
+								//        carousel so needing direct access to 
+								//        the object index and didn't know which
+								//        one was filtered out.) 
+								
+								var orig = data.results.bindings;
+								// Make *copy* of results:
+								var filteredCopy = orig.slice(0);
+								var indexToRemove = -1;
+
+								for (var i=0; i < filteredCopy.length; i++) {
+									// See if the featured artist is in the associated
+									// array (most likely it is but in theory may not
+									// be if more than 100 associates)
+									if (filteredCopy[i].id.value === $routeParams.id) {
+										indexToRemove = i;
+									}
+								}
+
+								if (indexToRemove != -1) {
+									// Remove featured artist from filteredCopy
+									filteredCopy.splice(indexToRemove, 1);
+								}
+
+								$scope.dbpResultsAssociatesInclFeatured = orig;
+								$scope.dbpResultsAssociates = filteredCopy;
 							}); 
 						}
 					}); 
@@ -38,15 +70,4 @@ app.controller('MusicianController', ['$scope', '$routeParams', 'sparqlQueries',
 			}); 
 		}		
 	}); 
-
-	$scope.isNotFeaturedMusician = function(associate) {
-		return !(associate.id.value === $routeParams.id);
-	};
-	
-	$scope.imgNotFound = function(image) {
-	    image.onerror = '';
-	    image.src = '/images/imageNotFound.gif';
-	    return true;
-	}
-
 }]);
