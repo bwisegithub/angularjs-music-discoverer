@@ -2,6 +2,7 @@
  * music-discoverer specific styles
  * (Override tactile_screen.css)
  */
+
 h1 {
 	font-size: 30px;
 	padding-bottom: 10px;
@@ -198,6 +199,18 @@ footer a:active {
 	height: 15px;
 	width: 15px;
 	background-color: #c5000c;
+}
+
+/* To work around side effect of clicking quickly
+   on carousel causes it to look "selected";
+   could use this elsewhere if needed */
+.no-select {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 #downloads {
