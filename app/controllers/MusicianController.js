@@ -47,7 +47,7 @@ app.controller('MusicianController', ['$scope', '$routeParams', 'sparqlQueries',
 								var filteredCopy = orig.slice(0);
 								var indexToRemove = -1;
 
-								for (var i=0; i < filteredCopy.length; i++) {
+								for (var i=0; i<filteredCopy.length; i++) {
 									// See if the featured artist is in the associated
 									// array (most likely it is but in theory may not
 									// be if more than 100 associates)
