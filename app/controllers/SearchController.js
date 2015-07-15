@@ -78,7 +78,7 @@ app.controller('SearchController', ['$scope', '$location', 'sparqlQueries', 'dbp
 									id = dbpResultsGetId[0].id.value;
 								}
 								// route to the musician with the wikiPageId chosen by dbpedia
-								$("body").css("cursor", "default");
+								$('body').css('cursor', 'default');
 								$location.path('/musician/' + id);
 							}); 
 						}
