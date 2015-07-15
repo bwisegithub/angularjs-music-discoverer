@@ -1,0 +1,32 @@
+/**
+ * music-discoverer specific styles
+ * (For d3.js charts)
+ */
+
+/* timeline */
+.axis line,
+.axis path {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+.axis text {
+	font: 10px sans-serif;
+}
+
+
+/* force graph */
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.node.fixed {
+  fill: #f00;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}

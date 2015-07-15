@@ -1,5 +1,5 @@
 app.directive('mdFeaturedImg', function() { 
-  return { 
+	return { 
 		restrict: 'E', 
 		scope: { 
 			mdfeaturedobj: '='
