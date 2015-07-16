@@ -83,7 +83,6 @@ app.directive('mdD3ForceGraph', function() {
 				// Process object arr; push all its nodes and links
 				processLinkedArr(assoc_object_arr, musicianId);
 			}
-window.alert(nonuniqueNodes.nodes.length);
 
 			// Examine nonuniqueNodes.nodes and store unique ones in assocs.nodes
 			nonuniqueNodes.nodes.forEach(function(n) {
