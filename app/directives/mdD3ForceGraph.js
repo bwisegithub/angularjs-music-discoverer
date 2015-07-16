@@ -44,6 +44,11 @@ app.directive('mdD3ForceGraph', function() {
 			//    (Group values are just used to color the node/circles on the graph
 			//    to help visually separate the clusters a bit better.)
 
+			// Maximum number of nodes (musicians) to display on graph.
+			// This is more to prevent excessive memory consumption than for pretty-display purposes.
+			// (Typical possible # of nodes for popular musicians are in the 600ish range;
+			//  Dolly Parton has 1000!)
+			var MAX_NUM_OF_NODES_TO_DISPLAY = 500;
 			// Assocs will hold the d3-friendly version of the musican associates
 			var assocs = { 'nodes': [], 'links': [] };
 			// Temp array to hold the non unique nodes found in the mdassocobj;
@@ -78,25 +83,28 @@ app.directive('mdD3ForceGraph', function() {
 				// Process object arr; push all its nodes and links
 				processLinkedArr(assoc_object_arr, musicianId);
 			}
+window.alert(nonuniqueNodes.nodes.length);
 
 			// Examine nonuniqueNodes.nodes and store unique ones in assocs.nodes
 			nonuniqueNodes.nodes.forEach(function(n) {
-				pushToAssocsNodes = false;
-				if (assocs.nodes.length > 0) {
-					// Is the id already in assocs.nodes?
-					matchedNode = ($.grep(assocs.nodes, function(g){ return g.id == n.id; }))[0];
-					if (!matchedNode) {
-						// Not yet added to assocs.nodes, so add it
+				if (assocs.nodes.length <= MAX_NUM_OF_NODES_TO_DISPLAY) {
+					pushToAssocsNodes = false;
+					if (assocs.nodes.length > 0) {
+						// Is the id already in assocs.nodes?
+						matchedNode = ($.grep(assocs.nodes, function(g){ return g.id == n.id; }))[0];
+						if (!matchedNode) {
+							// Not yet added to assocs.nodes, so add it
+							pushToAssocsNodes = true;
+						}
+					} 
+					else {
+						// assocs.nodes is empty so ok to push very first nonuniqueNodes.nodes
 						pushToAssocsNodes = true;
 					}
-				} 
-				else {
-					// assocs.nodes is empty so ok to push very first nonuniqueNodes.nodes
-					pushToAssocsNodes = true;
-				}
 
-				if (pushToAssocsNodes) {
-					assocs.nodes.push({id: n.id, name: n.name, group: n.group});
+					if (pushToAssocsNodes) {
+						assocs.nodes.push({id: n.id, name: n.name, group: n.group});
+					}
 				}
 			});
 
@@ -106,11 +114,16 @@ app.directive('mdD3ForceGraph', function() {
 			// The purpose of the following is to change the default behavior of linking by 
 			// node array index to custom behavior (link by node 'id' value).
 			assocs.links.forEach(function(n) { 
+
 				sourceNode = ($.grep(assocs.nodes, function(g) { return g.id == n.source; } ))[0];
 				targetNode = ($.grep(assocs.nodes, function(g) { return g.id == n.target; } ))[0];
 
-				// Add the edge to the array
-				edges.push({source: sourceNode, target: targetNode});
+				// If the # of possible nodes exceeded the max allowed, then the sourceNode and/or
+				// targetNode may not actually exist so check before adding an edge.
+				if (sourceNode && targetNode){
+					// Add the edge to the array
+					edges.push({source: sourceNode, target: targetNode});
+				}
 			});
 
 			// To free up memory, undefine assocs.links now that no longer needed
