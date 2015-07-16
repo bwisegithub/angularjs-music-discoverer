@@ -100,6 +100,9 @@ app.directive('mdD3ForceGraph', function() {
 				}
 			});
 
+			// To free up memory, undefine nonuniqueNodes now that no longer needed
+			nonuniqueNodes = null;
+
 			// The purpose of the following is to change the default behavior of linking by 
 			// node array index to custom behavior (link by node 'id' value).
 			assocs.links.forEach(function(n) { 
@@ -109,6 +112,9 @@ app.directive('mdD3ForceGraph', function() {
 				// Add the edge to the array
 				edges.push({source: sourceNode, target: targetNode});
 			});
+
+			// To free up memory, undefine assocs.links now that no longer needed
+			assocs.links = null;			
 
 
 			/////////////
@@ -159,6 +165,10 @@ app.directive('mdD3ForceGraph', function() {
 				.nodes(assocs.nodes)
 				.links(edges)
 				.start();
+
+			// To free up memory, undefine assocs.nodes and edges now that no longer needed
+			assocs.nodes = null;
+			edges = null;
 
 			var text = svg.append('g').selectAll('.link')
 				.data(force.nodes())
