@@ -217,6 +217,12 @@ footer a:active {
 	user-select: none;
 }
 
+.instructions {
+	margin-bottom: 7px;
+	font-size: smaller;
+	font-style: italic;
+}
+
 #downloads {
 	margin-bottom: 25px;
 }
@@ -281,6 +287,10 @@ footer a:active {
 
 	.carousel-control.right {
 		margin-right: 0px;
+	}
+
+	.instructions {
+		font-size: small;
 	}
 
 	#downloads {

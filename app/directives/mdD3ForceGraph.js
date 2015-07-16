@@ -56,6 +56,9 @@ app.directive('mdD3ForceGraph', function() {
 			var assoc_object_arr = [];
 			var musicianId, idLabelSplit;
 			var pushToAssocsNodes;
+			var matchedNode;
+			var sourceNode;
+			var targetNode;
 
 			for (var i=0; i<scope.mdassocobj.length; i++) {
 				musicianId = scope.mdassocobj[i].id.value;
@@ -81,7 +84,7 @@ app.directive('mdD3ForceGraph', function() {
 				pushToAssocsNodes = false;
 				if (assocs.nodes.length > 0) {
 					// Is the id already in assocs.nodes?
-					var matchedNode = ($.grep(assocs.nodes, function(g){ return g.id == n.id; }))[0];
+					matchedNode = ($.grep(assocs.nodes, function(g){ return g.id == n.id; }))[0];
 					if (!matchedNode) {
 						// Not yet added to assocs.nodes, so add it
 						pushToAssocsNodes = true;
@@ -100,8 +103,8 @@ app.directive('mdD3ForceGraph', function() {
 			// The purpose of the following is to change the default behavior of linking by 
 			// node array index to custom behavior (link by node 'id' value).
 			assocs.links.forEach(function(n) { 
-				var sourceNode = ($.grep(assocs.nodes, function(g) { return g.id == n.source; } ))[0];
-				var targetNode = ($.grep(assocs.nodes, function(g) { return g.id == n.target; } ))[0];
+				sourceNode = ($.grep(assocs.nodes, function(g) { return g.id == n.source; } ))[0];
+				targetNode = ($.grep(assocs.nodes, function(g) { return g.id == n.target; } ))[0];
 
 				// Add the edge to the array
 				edges.push({source: sourceNode, target: targetNode});
@@ -109,18 +112,24 @@ app.directive('mdD3ForceGraph', function() {
 
 
 			/////////////
-			// DRAW GRAPH
+			// DRAW FORCE GRAPH
+			// Based on/modified from
+			// http://bl.ocks.org/mbostock/1129492 (bounded-ness) and
+			// http://bl.ocks.org/mbostock/3750558 (sticky-ness) examples, 
+			// but with added labels, touchscreen support, hyperlinked nodes,
+			// support for id-based edges vs index-based, and various other customizations.
 			/////////////
 			var selection = d3.select('#force-graph'); 
 			var width = selection[0][0].clientWidth;
-			var height = 500;
+			var height = 525;
 			var radius = 6;
 			var color = d3.scale.category20();
 
 			var force = d3.layout.force()
 				.gravity(.05)
-				.charge(-240)
+				.charge(-200)
 				.linkDistance(50)
+				.linkStrength(.75)
 				.size([width, height]);
 
 			var drag = force.drag()
@@ -143,6 +152,7 @@ app.directive('mdD3ForceGraph', function() {
 				.style('fill', function(d) { return color(d.group); })
 				.style('stroke', function(d) { return d3.rgb(color(d.group)).darker(); })
 				.on('dblclick', dblclick)
+				.on('touchstart', dblTouch)
 				.call(drag);
 
 			force
@@ -196,14 +206,46 @@ app.directive('mdD3ForceGraph', function() {
 				return 'translate(' + d.x + ',' + d.y + ')';
 			}
 
-			function dblclick(d) {
-				d3.select(this).classed('fixed', d.fixed = false);
-			}
-
 			function dragstart(d) {
-				d3.select(this).classed('fixed', d.fixed = true);
+				// Drag to pin
+				// d3.select(this).classed('fixed', d.fixed = true);
+
+				// Drag to pin. drag (click) to release.
+				// (Toggle fixed class on and off with drag)
+				d3.select(this).classed('fixed', d.fixed = d3.select(this).classed('fixed') ? false : true);
 			}
 
+			function dblclick(d) {
+				// Double click to release
+				// d3.select(this).classed('fixed', d.fixed = false);
+
+				// Double click to view musician details
+				location.href = '#/musician/' + d.id;
+			}
+
+			// For tap vs click (mobile/desktop touchscreens)
+			function dblTouch(d) {
+
+				d3.selection.prototype.dblTap = function(callback) {
+					var last = 0;
+					return this.each(function() {
+						d3.select(this).on('touchstart', function(e) {
+							if ((d3.event.timeStamp - last) < 500) {
+								return callback(e);
+							}
+							last = d3.event.timeStamp;
+						});
+					});
+				}
+
+				d3.select(this).dblTap(function() {
+					// Double tap to release
+					// d.fixed = false;
+
+					// Double tab to view musician details
+					location.href = '#/musician/' + d.id;
+				});
+			}
 		}
 	}; 
 });
