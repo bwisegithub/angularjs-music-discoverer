@@ -3,19 +3,6 @@
  * (For d3.js charts)
  */
 
-/* timeline */
-.axis line,
-.axis path {
-	fill: none;
-	stroke: #000;
-	shape-rendering: crispEdges;
-}
-
-.axis text {
-	font: 10px sans-serif;
-}
-
-
 /* force graph */
 text {
 	pointer-events: none;

@@ -218,7 +218,7 @@ footer a:active {
 }
 
 .instructions {
-	margin-bottom: 7px;
+	margin-bottom: 8px;
 	font-size: smaller;
 	font-style: italic;
 }
@@ -241,6 +241,11 @@ footer a:active {
 
 #musician-associates h2 {
 	margin-top: 21px;
+}
+
+#musician-extended-associates h2 {
+	margin-top: 9px;
+	margin-bottom: 4px;
 }
 
 
