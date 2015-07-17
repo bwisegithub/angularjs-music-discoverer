@@ -165,7 +165,7 @@ footer a:active {
 }
 
 .youtube-img {
-/*	height: 170px;*/
+	height: 227px;
 	width: 293px;
 	border: 5px ridge #9a9a9a;
 	padding: 10px 10px 10px 10px;
@@ -232,7 +232,9 @@ footer a:active {
 	background-color: inherit;
 }
 
-
+.fa-youtube-square {
+	color: #c5000c;
+}
 
 .fa-youtube-square:before {
 	vertical-align: middle;
