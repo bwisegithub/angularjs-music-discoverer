@@ -232,6 +232,12 @@ footer a:active {
 	background-color: inherit;
 }
 
+
+
+.fa-youtube-square:before {
+	vertical-align: middle;
+}
+
 /* To work around side effect of clicking quickly
    on carousel causes it to look "selected";
    could use this elsewhere if needed */

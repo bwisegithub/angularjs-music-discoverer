@@ -1,4 +1,10 @@
-<a class="button youtube-btn" target="_blank" href="https://www.youtube.com/watch?v={{mdyoutubeobj.id.videoId}}">
+<a class="button youtube-btn" target="youtube_window" href="https://www.youtube.com/watch?v={{mdyoutubeobj.id.videoId}}">
 	<md-img mdimgclass="'youtube-img'" mdimgval="mdyoutubeobj.snippet.thumbnails.high.url" mdimgalt=""></md-img>
-	<span>{{mdyoutubeobj.snippet.title}}</span>
+	<span>
+		<i class="fa fa-youtube-square fa-3x pull-left"></i>
+		{{mdyoutubeobj.snippet.title}}
+	</span>
 </a>
+
+
+

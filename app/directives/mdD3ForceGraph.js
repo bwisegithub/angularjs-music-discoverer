@@ -49,7 +49,6 @@ app.directive('mdD3ForceGraph', function() {
 			// (Typical possible # of nodes for popular musicians are in the 600ish range;
 			//  Dolly Parton has 1000!)
 			var MAX_NUM_OF_NODES_TO_DISPLAY = 500;
-			var MIN_GRAPH_HEIGHT = 250;
 			var MAX_GRAPH_HEIGHT = 525;
 			// Assocs will hold the d3-friendly version of the musican associates
 			var assocs = { 'nodes': [], 'links': [] };
@@ -141,9 +140,15 @@ app.directive('mdD3ForceGraph', function() {
 			/////////////
 			var selection = d3.select('#force-graph'); 
 			var width = selection[0][0].clientWidth;
-			// Determine height of graphby # of nodes to display, but no smaller 
-			// than MIN_GRAPH_HEIGHT and no bigger than MAX_GRAPH_HEIGHT.
-			var height = Math.max(MIN_GRAPH_HEIGHT, Math.min(assocs.nodes.length + 200, MAX_GRAPH_HEIGHT));
+
+			// Determine height of graph by # of nodes to display, but no bigger than MAX_GRAPH_HEIGHT.
+			var percOfMaxNodesAllowed = assocs.nodes.length / MAX_NUM_OF_NODES_TO_DISPLAY;
+			var height = MAX_GRAPH_HEIGHT;
+			if (percOfMaxNodesAllowed < .30) {
+				// Don't need full height so overwrite height value with a percentage based one
+				height = Math.min(MAX_GRAPH_HEIGHT, MAX_GRAPH_HEIGHT * (percOfMaxNodesAllowed + .50));
+			} 
+			
 			var radius = 6;
 			var color = d3.scale.category20();
 
