@@ -248,6 +248,32 @@ footer a:active {
 	margin-bottom: 4px;
 }
 
+/* css for youtube elements
+================================================== */
+
+
+/* css for d3 force graph elements
+================================================== */
+text {
+	pointer-events: none;
+	font: 10px sans-serif;
+	text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+}
+
+.node {
+	stroke: #fff;
+	stroke-width: 1.5px;
+}
+
+.node.fixed {
+	fill: #f00;
+}
+
+.link {
+	stroke: #999;
+	stroke-opacity: .6;
+}
+
 
 /* #Media Queries
 ================================================== */
