@@ -189,6 +189,29 @@ footer a:active {
 	border-top-color: #c5000c;
 }
 
+.tooltip.right .tooltip-inner {
+	background-color: #c5000c;
+}
+
+.tooltip.right .tooltip-arrow {
+	border-right-color: #c5000c;
+}
+
+.tooltip.bottom .tooltip-inner {
+	background-color: #c5000c;
+}
+.tooltip.bottom .tooltip-arrow {
+	border-bottom-color: #c5000c;
+} 
+
+.tooltip.left .tooltip-inner {
+	background-color: #c5000c;
+}
+
+.tooltip.left .tooltip-arrow {
+	border-left-color: #c5000c;
+}                    
+
 .carousel {
 	margin-bottom: 36px;
 }
@@ -240,6 +263,11 @@ footer a:active {
 	vertical-align: middle;
 }
 
+.fa-twitter-square {
+	color: #55acee;
+	margin-bottom: 14px;
+}
+
 /* To work around side effect of clicking quickly
    on carousel causes it to look "selected";
    could use this elsewhere if needed */
@@ -283,6 +311,9 @@ footer a:active {
 	margin-bottom: 4px;
 }
 
+#musician-youtube h2 {
+	margin-top: 14px;
+}
 
 
 /* css for d3 force graph elements
