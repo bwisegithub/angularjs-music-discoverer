@@ -2,6 +2,15 @@
 <h1>{{ dbpResultsMusician[0].resource_label.value.length > 0 ? dbpResultsMusician[0].resource_label.value : 'musician details'}}</h1>
 <md-results-placeholder mdresplaceholder="dbpResultsMusician"></md-results-placeholder>
 
+<nav role="navigation">
+	<ul class="{{ dbpResultsAssociates.length > 0 ? 'nav' : 'nav nav-sm' }}">
+		<li><a class="button nav-btn" ng-click="scrollTo('#musician-associates')" ng-if="dbpResultsAssociates.length > 0">associated musicians</a></li>
+		<li><a class="button nav-btn" ng-click="scrollTo('#musician-extended-associates')" ng-if="dbpResultsAssociates.length > 0">extended associations</a></li>
+		<li><a class="button nav-btn" ng-click="scrollTo('#musician-youtube')" ng-if="youTubeVideos.length > 0">listen</a></li>
+		<li><a class="button nav-btn" ng-click="scrollTo('#musician-twitter')">chatter</a></li>
+	</ul>
+</nav>
+
 <section id="musician">
 	<div class="row">
 		<div class="col-md-6">
@@ -73,8 +82,8 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h2>chatter</h2>
-			<div class="text-center">
-				<a target="twitter_window" href="https://twitter.com/search?q=={{ dbpResultsMusician[0].resource_label.value }}" data-toggle="tooltip" data-placement="bottom" title="Show me the latest twitter activity for {{ dbpResultsMusician[0].resource_label.value }}" md-tooltip>
+			<div>
+				<a class="button twitter-btn" target="twitter_window" href="https://twitter.com/search?q={{ dbpResultsMusician[0].resource_label.value }}" data-toggle="tooltip" data-placement="right" title="Show me the latest twitter activity for {{ dbpResultsMusician[0].resource_label.value }}" md-tooltip>
 					<span>
 						<i class="fa fa-twitter-square fa-5x"></i>
 					</span>

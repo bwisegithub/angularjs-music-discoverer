@@ -9,6 +9,9 @@ app.controller('MusicianController', ['$scope', '$routeParams', 'sparqlQueries',
 		// Validate URL input before proceeding
 		if (/^[0-9]*$/.test($routeParams.id)) {
 			if ($routeParams.id > 0) {
+				// For use by nav bar
+				$scope.routeParamsId = $routeParams.id;
+
 				// Substitute in the routeParams id (which is the dbpedia-owl:wikiPageID)
 				sparqlQuery = sparqlQuery.replace('--REPLACE_ID--', $routeParams.id);
 
@@ -81,4 +84,10 @@ app.controller('MusicianController', ['$scope', '$routeParams', 'sparqlQueries',
 			}
 		}		
 	}); 
+
+	// To simulate bookmarks in angular
+	$scope.scrollTo = function(selector) {
+		window.scrollTo(0, $(selector)[0].offsetTop - 100);
+	}
+
 }]);

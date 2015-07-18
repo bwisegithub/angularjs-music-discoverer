@@ -51,6 +51,15 @@ a.button.youtube-btn {
 	font-size: x-small;
 }
 
+a.button.nav-btn {
+	float: left;
+	width: auto;
+	margin-right: 0px;
+	background: none;
+	border-radius: 0px 0px 15px 15px;
+	font-size: x-small;
+}
+
 ul li {
   list-style: none;
   padding-left: 0px;
@@ -106,6 +115,15 @@ footer a:active {
 	width: 293px;
 	margin-bottom: 14px;
 	padding: 0px 0px 5px 0px;
+	text-align: center;
+}
+
+.button.twitter-btn {
+	width: 65px;
+	border-radius: 15px;
+	margin-right: 0px;
+	margin-bottom: 14px;
+	padding: 0px 0px 0px 0px;
 	text-align: center;
 }
 
@@ -265,7 +283,6 @@ footer a:active {
 
 .fa-twitter-square {
 	color: #55acee;
-	margin-bottom: 14px;
 }
 
 /* To work around side effect of clicking quickly
@@ -284,6 +301,39 @@ footer a:active {
 	margin-bottom: 8px;
 	font-size: smaller;
 	font-style: italic;
+}
+
+/* This is nav that will be used if there are associated artists
+   (associated, extended, listen, chatter -- assumes youtube videos
+   will be found)*/
+.nav {
+	position: fixed;
+	top: 50%;
+	right: 0;
+	margin: -22px -170px 0px 0px;
+	z-index: 999;
+	overflow: visible;
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	writing-mode: tb-rl;
+}
+
+/* This is nav that will be used if there are no associated artists
+   (listen, chatter -- assumes youtube videos
+   will be found but if not, the whole nav will disappear
+   off to the right of the screen which is ok since that means
+   there is only one (chatter) section left so don't need nav)*/
+.nav.nav-sm {
+	margin: -22px -40px 0px 0px;
+}
+
+.nav li {
+	float: left;
+}
+
+.nav li a {
+	padding: 5px 12px 7px 12px; 
 }
 
 #downloads {
