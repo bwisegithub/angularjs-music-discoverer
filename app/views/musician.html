@@ -4,10 +4,10 @@
 
 <nav role="navigation">
 	<ul class="{{ dbpResultsAssociates.length > 0 && youTubeVideos.length > 0  ? 'nav' : (youTubeVideos.length > 0 ? 'nav nav-sm' : 'nav nav-hide') }}">
-		<li><a class="button nav-btn" ng-click="scrollTo('#musician-associates')" ng-if="dbpResultsAssociates.length > 0">direct associates</a></li>
-		<li><a class="button nav-btn" ng-click="scrollTo('#musician-extended-associates')" ng-if="dbpResultsAssociates.length > 0">extended network</a></li>
-		<li><a class="button nav-btn" ng-click="scrollTo('#musician-youtube')" ng-if="youTubeVideos.length > 0">listen</a></li>
-		<li><a class="button nav-btn" ng-click="scrollTo('#musician-twitter')">chatter</a></li>
+		<li><a class="button nav-btn" ng-click="scrollTo('musician-associates')" ng-if="dbpResultsAssociates.length > 0">direct associates</a></li>
+		<li><a class="button nav-btn" ng-click="scrollTo('musician-extended-associates')" ng-if="dbpResultsAssociates.length > 0">extended network</a></li>
+		<li><a class="button nav-btn" ng-click="scrollTo('musician-youtube')" ng-if="youTubeVideos.length > 0">listen</a></li>
+		<li><a class="button nav-btn" ng-click="scrollTo('musician-twitter')">chatter</a></li>
 	</ul>
 </nav>
 

@@ -2,8 +2,8 @@
 (function () {
 	'use strict';
 	angular.module('MusicDiscovererApp').controller('MusicianController', MusicianController);
-	MusicianController.$inject = ['$scope', '$routeParams', 'sparqlQueries', 'dbpResults', 'youTubeResults'];
-	function MusicianController($scope, $routeParams, sparqlQueries, dbpResults, youTubeResults) {
+	MusicianController.$inject = ['$scope', '$routeParams', '$location', '$anchorScroll', 'sparqlQueries', 'dbpResults', 'youTubeResults'];
+	function MusicianController($scope, $routeParams, $location, $anchorScroll, sparqlQueries, dbpResults, youTubeResults) {
 		// Get the sparql query string for the musician
 		// then execute it on dbpedia for the given routeParams id
 		sparqlQueries.getData().success(function(data) {
@@ -90,9 +90,12 @@
 			}		
 		}); 
 
-		// To simulate bookmarks in angular
-		$scope.scrollTo = function(selector) {
-			window.scrollTo(0, $(selector)[0].offsetTop - 100);
+		$scope.scrollTo = function(anchorHash) {
+			var old = $location.hash();
+			$location.hash(anchorHash);
+			$anchorScroll();
+			//reset to old to keep any additional routing logic from kicking in
+			$location.hash(old);
 		};
 
 	}
