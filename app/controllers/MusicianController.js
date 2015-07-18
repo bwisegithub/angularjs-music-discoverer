@@ -1,10 +1,9 @@
 /*global window*/
 (function () {
 	'use strict';
-
-	angular.module('MusicDiscovererApp').controller('MusicianController', ['$scope', '$routeParams', 'sparqlQueries', 'dbpResults', 'youTubeResults', 
-		function($scope, $routeParams, sparqlQueries, dbpResults, youTubeResults) {
-
+	angular.module('MusicDiscovererApp').controller('MusicianController', MusicianController);
+	MusicianController.$inject = ['$scope', '$routeParams', 'sparqlQueries', 'dbpResults', 'youTubeResults'];
+	function MusicianController($scope, $routeParams, sparqlQueries, dbpResults, youTubeResults) {
 		// Get the sparql query string for the musician
 		// then execute it on dbpedia for the given routeParams id
 		sparqlQueries.getData().success(function(data) {
@@ -96,5 +95,5 @@
 			window.scrollTo(0, $(selector)[0].offsetTop - 100);
 		};
 
-	}]);
+	}
 }());

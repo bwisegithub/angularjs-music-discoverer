@@ -1,9 +1,8 @@
 (function () {
 	'use strict';
-
-	angular.module('MusicDiscovererApp').controller('ResultListController', ['$scope', '$routeParams', '$location', 'sparqlQueries', 'dbpResults', 
-		function($scope, $routeParams, $location, sparqlQueries, dbpResults) {
-
+	angular.module('MusicDiscovererApp').controller('ResultListController', ResultListController);
+	ResultListController.$inject = ['$scope', '$routeParams', '$location', 'sparqlQueries', 'dbpResults'];
+	function ResultListController($scope, $routeParams, $location, sparqlQueries, dbpResults) {
 		// Get the appropriate sparql query string
 		// then execute it on dbpedia
 		sparqlQueries.getData().success(function(data) {
@@ -36,5 +35,5 @@
 				}
 			} // Else don't process...you're up to no good.
 		}); 
-	}]);
+	}
 }());

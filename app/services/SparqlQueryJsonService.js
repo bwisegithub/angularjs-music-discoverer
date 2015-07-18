@@ -1,8 +1,8 @@
 (function () {
 	'use strict';
-
-	angular.module('MusicDiscovererApp').factory('sparqlQueries', ['$http', function($http) {
-
+	angular.module('MusicDiscovererApp').factory('sparqlQueries', sparqlQueries);
+	sparqlQueries.$inject = ['$http'];
+	function sparqlQueries($http) {
 		return {
 			getData: function() { 
 				return $http.get('app/json/sparql.json')
@@ -26,5 +26,5 @@
 				return sparqlQuery;
 			}
 		};
-	}]);
+	}
 }());

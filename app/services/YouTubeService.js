@@ -1,9 +1,9 @@
 /*global window*/
 (function () {
 	'use strict';
-
-	angular.module('MusicDiscovererApp').factory('youTubeResults', ['$http', function($http) {
-
+	angular.module('MusicDiscovererApp').factory('youTubeResults', youTubeResults);
+	youTubeResults.$inject = ['$http'];
+	function youTubeResults($http) {
 		return {
 			search: function(keywords) {
 				var timeoutInt = 30000;
@@ -20,19 +20,19 @@
 							fields: 'items/id/videoId,items/snippet/title,items/snippet/thumbnails/high',
 							q: keywords
 						}
-					})
-					.success(function(data) {
-						return data;
-					})
-					.error(function(resp, status, header, config) {
-						var respTime = new Date().getTime() - startTime;
-						if(respTime >= config.timeout) {
-							window.alert('Timeout error calling the youTube API service.\nThe service may be under maintenance.\nTry again later.');
-						} else {
-							window.alert('Unexpected error calling the youTube API service');
-						}
-					});
+				})
+				.success(function(data) {
+					return data;
+				})
+				.error(function(resp, status, header, config) {
+					var respTime = new Date().getTime() - startTime;
+					if(respTime >= config.timeout) {
+						window.alert('Timeout error calling the youTube API service.\nThe service may be under maintenance.\nTry again later.');
+					} else {
+						window.alert('Unexpected error calling the youTube API service');
+					}
+				});
 			}
 		};
-	}]);
+	}
 }());

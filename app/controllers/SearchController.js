@@ -1,8 +1,9 @@
 (function () {
 	'use strict';
 
-	angular.module('MusicDiscovererApp').controller('SearchController', ['$scope', '$location', 'sparqlQueries', 'dbpResults', 
-		function($scope, $location, sparqlQueries, dbpResults) {
+	angular.module('MusicDiscovererApp').controller('SearchController', SearchController);
+	SearchController.$inject = ['$scope', '$location', 'sparqlQueries', 'dbpResults'];
+	function SearchController($scope, $location, sparqlQueries, dbpResults) {
 
 		$scope.search = function(paramSearchKeywords) {
 			$location.path('/resultlist/' + paramSearchKeywords);
@@ -88,5 +89,5 @@
 				}
 			}); 
 		};
-	}]);
+	}
 }());
