@@ -20,6 +20,7 @@
 				for (i = 0; i< data.sparqlQueries.length; i+=1) {
 					if (data.sparqlQueries[i].name === paramQueryName) {
 						sparqlQuery = data.sparqlQueries[i].query.join(' ');
+						break;
 					}
 				}
 				return sparqlQuery;

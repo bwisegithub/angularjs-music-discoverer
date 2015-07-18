@@ -63,6 +63,7 @@
 										// be if more than 100 associates)
 										if (filteredCopy[i].id.value === $routeParams.id) {
 											indexToRemove = i;
+											break;
 										}
 									}
 
