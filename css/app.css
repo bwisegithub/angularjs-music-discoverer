@@ -310,7 +310,7 @@ footer a:active {
 	position: fixed;
 	top: 50%;
 	right: 0;
-	margin: -22px -170px 0px 0px;
+	margin: -22px -150px 0px 0px;
 	z-index: 999;
 	overflow: visible;
 	-webkit-transform: rotate(90deg);
@@ -319,13 +319,16 @@ footer a:active {
 	writing-mode: tb-rl;
 }
 
-/* This is nav that will be used if there are no associated artists
-   (listen, chatter -- assumes youtube videos
-   will be found but if not, the whole nav will disappear
-   off to the right of the screen which is ok since that means
-   there is only one (chatter) section left so don't need nav)*/
+/* This is nav that will be used if there are no associated artists but are
+   videos (e.g. listen, chatter)*/
 .nav.nav-sm {
 	margin: -22px -40px 0px 0px;
+}
+
+/* This is nav will be used if there is nothing left but chatter section
+   i.e. hide offscreen since only one small section to show */ 
+.nav.nav-hide {
+	margin: -22px -5000px 0px 0px;
 }
 
 .nav li {
