@@ -41,7 +41,7 @@
 									// Make two copy of the results
 									// orig - As is. Will use this in d3.js diagrams.
 									//        Includes the featured artist.
-									// filteredCopy - Remove the featured artist.
+									// filteredCopy - Remove the featured artist and any dups.
 									//        Use in associated musicians carousel.
 									//        (Tried using filter in expression for
 									//        carousel, but tricky because of wanting
@@ -51,25 +51,45 @@
 									//        one was filtered out.) 
 									
 									var orig = data.results.bindings;
-									// Make *copy* of results:
-									var filteredCopy = orig.slice(0);
-									var indexToRemove = -1;
-									
-									var i;
-									for (i=0; i<filteredCopy.length; i+=1) {
-										// See if the featured artist is in the associated
-										// array (most likely it is but in theory may not
-										// be if more than 100 associates)
-										if (filteredCopy[i].id.value === $routeParams.id) {
-											indexToRemove = i;
-											break;
-										}
-									}
 
-									if (indexToRemove !== -1) {
-										// Remove featured artist from filteredCopy
-										filteredCopy.splice(indexToRemove, 1);
-									}
+									// Filter associate results to
+									// 1) Get unique id rows (see for 527989/Andy_Williams to see ex of repeated 
+									//    assocs but distinct rows some where id has thumbnail and some doesnt.
+									//    Added ORDER BY DESC(?thumbnail) to musicianAssociatedQuery to help ensure 
+									//    ones w/thumbnails are not the dups removed.)
+									//    ** TODO: This is a hacky way of dealing w/the problem; need to revise the 
+									//    SPARQL to pull back rows as expected **
+									// 2) Remove featured artist
+									// 3) Shed the assoc arrays which are not needed for the thumbnail carousel
+
+									var filteredCopy = [];
+									var matchedEntry;
+									var pushToFiltered = false;
+
+									// Examine orig and store unique entries in filteredCopy
+									orig.forEach(function(n) {
+										pushToFiltered = false;
+										if (filteredCopy.length > 0) {
+											// Is the id already in filteredCopy?
+											matchedEntry = ($.grep(filteredCopy, function(g){ return g.id.value == n.id.value; }))[0];
+											if (!matchedEntry) {
+												// Not yet added to filteredCopy, so add it
+												pushToFiltered = true;
+											}
+										} 
+										else {
+											// filteredCopy is empty so ok to push very first orig
+											pushToFiltered = true;
+										}
+
+										if (pushToFiltered) {
+											// Don't push featured artist if it was found (most likely it will be,
+											// but in theory may not exceeded LIMIT set in sparql query
+											if (n.id.value !== $routeParams.id) {
+												filteredCopy.push({id: n.id, label: n.label, thumbnail: n.thumbnail});
+											}
+										}
+									});
 
 									$scope.dbpResultsAssociatesInclFeatured = orig;
 									$scope.dbpResultsAssociates = filteredCopy;

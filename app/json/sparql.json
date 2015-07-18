@@ -148,6 +148,7 @@
 					"  FILTER(langMatches(lang(?comment),\"EN\"))",
 					"  FILTER(!regex(?label, \"List of\", \"i\"))",
 					"}",
+					"ORDER BY DESC(?thumbnail)",
 					"LIMIT 100"
 					]
 	}	
