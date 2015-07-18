@@ -57,8 +57,6 @@
 									//    assocs but distinct rows some where id has thumbnail and some doesnt.
 									//    Added ORDER BY DESC(?thumbnail) to musicianAssociatedQuery to help ensure 
 									//    ones w/thumbnails are not the dups removed.)
-									//    ** TODO: This is a hacky way of dealing w/the problem; need to revise the 
-									//    SPARQL to pull back rows as expected **
 									// 2) Remove featured artist
 									// 3) Shed the assoc arrays which are not needed for the thumbnail carousel
 
