@@ -14,6 +14,7 @@ Web-based tool to discover musician-relatedness
       - [Listen Section](#listen-section)
       - [Chatter Section](#chatter-section)
 - [Credits](#credits)
+- [Keywords](#keywords)
 
 ##Live Demo Site
 <p align="center">http://bwisegithub.github.io/angularjs-music-discoverer/</p>
@@ -83,3 +84,12 @@ Web-based tool to discover musician-relatedness
 * Data source: <a target="_blank" href="http://dbpedia.org">DBpedia</a> (<a target="_blank" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>)
 * Images: <a target="_blank" href="https://commons.wikimedia.org">Wikimedia</a> &amp; <a target="_blank" href="https://www.youtube.com">YouTube</a> (In <a href="http://bwisegithub.github.io/angularjs-music-discoverer/">demo</a> site, click on relevant image for attribution &amp; license.)
 * <a target="_blank" href="https://github.com/mbostock/d3">D3.js graphing library</a> by <a target="_blank" href="https://github.com/mbostock">Michael Bostock</a> (<a target="_blank" href="https://github.com/mbostock/d3/blob/master/LICENSE">BSD-3</a>)
+
+##Keywords
+mvc, mvw
+javascript, angularjs, jquery, twitter bootstrap, angular ui bootstrap, angular services, ajax, jsonp, json
+css3, html5, font awesome, web, responsive, mobile
+rdf, triples, sparql, endpoint, dbpedia, wikimedia
+d3.js, visualization, force graph, graph model
+youtube data api
+twitter
