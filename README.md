@@ -3,10 +3,11 @@ angularjs-music-discoverer
 Web-based tool to discover musician-relatedness
 
 ## Live Demo Site
-<p align="center">https://bwisegithub.github.io/angularjs-music-discoverer/</p>
+<p align="center">http://bwisegithub.github.io/angularjs-music-discoverer/</p>
 
 *Note:*
 * Uses dbpedia.org's public SPARQL endpoint, which unfortunately has frequent outages and/or lack of responsiveness.  If searches time out, please try again later.
+* Attempts to access the above URL via https will succeed, but searches will fail wiht a "Mixed Content" error due to the SPARQL endpoint being available only via http
 
 ## Screenshots
 
