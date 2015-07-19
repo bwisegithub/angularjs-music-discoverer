@@ -16,14 +16,15 @@ Web-based tool to discover musician-relatedness
 * "Surprise me" yields random musician
 
 *Note:*
-* Currently limits results to rdf:type dbpedia-owl:Band and dbpedia:owl MusicalArtist, although other types may show up in the associated musicians if the associated entity listed or was listed as dbpedia-owl:associatedMusicalArtist
+* Currently limits results to rdf:type dbpedia-owl:Band and dbpedia:owl MusicalArtist, although other types may show up in the associated musicians if the associated entity listed the featured musician as dbpedia-owl:associatedMusicalArtist, or vice versa.
 
 ![search](screenshots/search.jpg)
 
 ### Possible Matches (Search Result List) Screen
 *Features:*
-* Thumbnails of all possible matches
-* Clicking on desired musician shows the musician details screen for chosen musician
+* Thumbnails of all possible matches to the keyword(s) entered on the search screen
+  * DBpedia entries that list no wikimedia thumbnail show up as black image placeholders
+* Clicking on image shows the musician details screen for chosen musician
 
 ![possible matches](screenshots/possible_matches.jpg)
 
