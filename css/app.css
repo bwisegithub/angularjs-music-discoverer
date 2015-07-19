@@ -398,13 +398,14 @@ text {
 ================================================== */
 /* Hide right nav for IE */
 _:-ms-lang(x), .ie10up { 
-.nav.nav-hide {
-	margin: -22px -5000px 0px 0px;
-} 
+	.nav.nav-hide {
+		margin: -22px -5000px 0px 0px;
+	} 
 }
 _:-ms-fullscreen, :root .ie11up { 
-.nav.nav-hide {
-	margin: -22px -5000px 0px 0px;
+	.nav.nav-hide {
+		margin: -22px -5000px 0px 0px;
+	}
 }
 
 /* All Mobile Sizes (devices and browser) */
