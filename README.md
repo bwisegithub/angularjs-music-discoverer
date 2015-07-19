@@ -87,9 +87,15 @@ Web-based tool to discover musician-relatedness
 
 ##Keywords
 mvc, mvw
+
 javascript, angularjs, jquery, twitter bootstrap, angular ui bootstrap, angular services, ajax, jsonp, json
+
 css3, html5, font awesome, web, responsive, mobile
+
 rdf, triples, sparql, endpoint, dbpedia, wikimedia
+
 d3.js, visualization, force graph, graph model
+
 youtube data api
+
 twitter
