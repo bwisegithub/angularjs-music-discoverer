@@ -409,7 +409,7 @@ _:-ms-fullscreen, :root .ie11up {
 }*/
 
 /* Hide right nav for IE (10+) */
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+@media all and ((-ms-high-contrast: none), (-ms-high-contrast: active)) {
 	.nav.nav-hide {
 		margin: -22px -5000px 0px 0px;
 	}
