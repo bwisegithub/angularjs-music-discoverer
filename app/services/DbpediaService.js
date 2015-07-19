@@ -7,7 +7,7 @@
 		return {
 			getDbpediaResults: function(sparqlQuery) { 
 
-				var timeoutInt = 30000;
+				var timeoutInt = 1200000;
 				var startTime = new Date().getTime();
 
 				if (sparqlQuery != 'QUERY NOT FOUND') {
@@ -24,7 +24,7 @@
 					.error(function(resp, status, header, config) {
 						var respTime = new Date().getTime() - startTime;
 						if(respTime >= config.timeout) {
-							window.alert('Timeout error calling the dbpedia.org/sparql service.\nThe service may be under maintenance.\nTry again later.');
+							window.alert(respTime + 'Timeout error calling the dbpedia.org/sparql service.\nThe service may be under maintenance.\nTry again later.');
 						} else {
 							window.alert('Unexpected error calling the dbpedia.org/sparql service');
 						}

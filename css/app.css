@@ -104,8 +104,6 @@ footer a:active {
 }
 
 .button.featured-btn {
-	/* height needed for IE */
-	height: 275px;
 	width: 275px;
 	margin-bottom: 14px;
 	padding: 10px 10px 10px 10px;
