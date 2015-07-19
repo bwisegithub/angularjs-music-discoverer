@@ -119,6 +119,8 @@ footer a:active {
 }
 
 .button.twitter-btn {
+	/* height needed for IE */
+	height: 65px;
 	width: 65px;
 	border-radius: 15px;
 	margin-right: 0px;
