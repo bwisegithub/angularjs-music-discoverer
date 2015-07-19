@@ -90,7 +90,7 @@ mvc, mvw
 
 javascript, angularjs, jquery, twitter bootstrap, angular ui bootstrap, angular services, ajax, jsonp, json
 
-css3, html5, font awesome, web, one page website, responsive, mobile
+css3, html5, font awesome, web, single page application, SPA, responsive, mobile
 
 rdf, triples, sparql, endpoint, dbpedia, wikimedia
 
