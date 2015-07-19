@@ -68,5 +68,5 @@ Web-based tool to discover musician-relatedness
 ## Credits
 * Theme based on GitHub pages <a target="_blank" href="https://github.com/jasonlong/tactile-theme">Tactile Theme</a> by <a target="_blank" href="https://twitter.com/jasonlong">Jason Long</a>
 * Data source: <a target="_blank" href="http://dbpedia.org">DBpedia</a> (<a target="_blank" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>)
-* Images: <a target="_blank" href="https://commons.wikimedia.org">Wikimedia</a> &amp; <a target="_blank" href="https://www.youtube.com">YouTube</a> (click image for attr &amp; license)
+* Images: <a target="_blank" href="https://commons.wikimedia.org">Wikimedia</a> &amp; <a target="_blank" href="https://www.youtube.com">YouTube</a> (In <a href="http://bwisegithub.github.io/angularjs-music-discoverer/">demo</a> site, click on relevant image for attribution &amp; license.)
 * <a target="_blank" href="https://github.com/mbostock/d3">D3.js graphing library</a> by <a target="_blank" href="https://github.com/mbostock">Michael Bostock</a> (<a target="_blank" href="https://github.com/mbostock/d3/blob/master/LICENSE">BSD-3</a>)
