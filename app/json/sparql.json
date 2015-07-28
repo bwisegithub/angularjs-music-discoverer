@@ -2,6 +2,7 @@
 	{"id"		:	"1", 
 	 "name"		:	"keywordSearchQuery",
 	 "query"	:	[
+					"PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>",
 					"SELECT",
 					"  ?id",
 					"  STR(?label) AS ?label",
@@ -27,6 +28,7 @@
 	{"id"		:	"2", 
 	 "name"		:	"randomIdQuery",
 	 "query"	:	[
+					"PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>",
 					"SELECT",
 					"  ?id",
 					"WHERE ",
@@ -48,6 +50,7 @@
 	{"id"		:	"3", 
 	 "name"		:	"countForGenreQuery",
 	 "query"	:	[
+					"PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>",
 					"SELECT",
 					"  count(?resource) AS ?resourceCnt",
 					"WHERE",
@@ -67,6 +70,7 @@
 	{"id"		:	"4", 
 	 "name"		:	"randomIdForGenreQuery",
 	 "query"	:	[
+					"PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>",
 					"SELECT",
 					"  ?id",
 					"WHERE",
@@ -89,6 +93,7 @@
 	{"id"		:	"5", 
 	 "name"		:	"musicianDetailsQuery",
 	 "query"	:	[
+					"PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>",
 					"SELECT",
 					"  ?resource",
 					"  (STR(?resource_label) AS ?resource_label)",
@@ -114,6 +119,7 @@
 	{"id"		:	"6", 
 	 "name"		:	"musicianAssociatedQuery",
 	 "query"	:	[
+					"PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>",
 					"SELECT",
 					"  ?id",
 					"  (STR(?label) AS ?label)",
