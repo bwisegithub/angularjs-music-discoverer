@@ -21,7 +21,7 @@ Web-based tool to discover musician-relatedness
 
 *Note:*
 * Uses dbpedia.org's public SPARQL endpoint, which unfortunately has frequent outages and/or lack of responsiveness.  If searches time out, please try again later.
-* Attempts to access the above URL via https will succeed, but searches will fail wiht a "Mixed Content" error due to the SPARQL endpoint being available only via http
+* Attempts to access the above URL via https will succeed, but searches will fail with a "Mixed Content" error due to the SPARQL endpoint being available only via http
 
 ##Screenshots
 
